@@ -1,0 +1,78 @@
+<nz-card [nzBordered]="false" class="reports" [nzTitle]="'heading.report' | translate " [nzExtra]="action">
+	<div class="reports__content">
+		<div 
+    class="reports__filter"
+    [ngClass]="{ 'width-20':(filters.length > 0 && enableFilters), 'width-0':!(filters.length > 0 && enableFilters)}"
+    >
+			<app-filters
+				(onFilterChange)="applyFilter($event)"
+				*ngIf="filters.length > 0 && enableFilters"
+				[filters]="filters"
+			></app-filters>
+		</div>
+
+		<div class="reports__table" [ngClass]="{ 'width-80':(filters.length > 0 && enableFilters), 'width-100':!(filters.length > 0 && enableFilters)}" >
+			<div class="enable-filter">
+				<div class="enable-filter__label">
+					<i
+						nz-icon
+						nzType="filter"
+						class="enable-filter__label--icon"
+						nzTheme="outline"
+					></i>
+					<p class="enable-filter__label--text">
+						{{ 'heading.filters' | translate }}
+					</p>
+				</div>
+				<nz-switch
+					nzSize="small"
+					(ngModelChange)="showFilters()"
+					[(ngModel)]="enableFilters"
+				></nz-switch>
+			</div>
+
+			<app-table
+				[tableHeaders]="requestHeaders"
+				[tableData]="requests"
+				[enableDelete]="false"
+				[enableEdit]="false"
+				[formName]="formName"
+				[pageSize]="requestType == 'expenseReimburse' ? 8 : 5"
+				[enableCheckBox]="false"
+				(onRowSelect)="onRowData($event)"
+				(onRequestChange)="requestTypeChange($event, {}, 'typeChange')"
+				[requestType]="requestType"
+				[enableView]="requestType == 'expenseReimburse'"
+				[filters]="filters"
+				(onFilterChange)="applyFilter($event)"
+				[enableEmployeeSelection]="false"
+				(onView)="onView($event)"
+			></app-table>
+		</div>
+	</div>
+</nz-card>
+
+<app-request-details
+	[requestType]="requestType"
+	*ngIf="requestApprovalFlow && requestDetails"
+	[requestDetails]="requestDetails"
+	[requestApprovalProcess]="requestApprovalFlow"
+></app-request-details>
+
+
+
+<ng-template #action>
+	<div class="actions">
+
+
+	<button nz-button  (click)="openAnalytics()"  nzType="default">
+		<!-- <i nz-icon nzType="download" nzTheme="outline"></i> -->
+	  <!-- {{'button.downloadReports' | translate}} -->
+	  Analytics
+	</button>
+	<button nz-button (click)="downloadReport()"  nzType="primary">
+		<i nz-icon nzType="download" nzTheme="outline"></i>
+	  {{'button.downloadReports' | translate}}
+	</button>
+</div>
+  </ng-template>

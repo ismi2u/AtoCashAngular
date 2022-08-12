@@ -1,0 +1,594 @@
+<div class="table-ops" *ngIf="enableSearch">
+	<nz-select
+		class="request-type"
+		*ngIf="formName == 'inbox' || formName == 'expense-reimburse-inbox'"
+		[(ngModel)]="requestType"
+		(ngModelChange)="onRequestTypeChange($event)"
+	>
+		<nz-option
+			*ngFor="let option of RequestTypes"
+			[nzValue]="option.value"
+			[nzLabel]="option.label | translate"
+		></nz-option>
+	</nz-select>
+	<p 	*ngIf="formName == 'disburseList' ">{{'heading.settlementStatus' |  translate}} : </p>
+
+	<nz-select
+		class="request-type"
+		*ngIf="formName == 'disburseList' "
+		[(ngModel)]="disburseType"
+		(ngModelChange)="onDisburseTypeChange($event)"
+	>
+		<nz-option
+			*ngFor="let option of disburseTypes"
+			[nzValue]="option.value"
+			[nzLabel]="option.label | translate"
+		></nz-option>
+	</nz-select>
+	<p 	*ngIf="formName == 'disburseList' ">{{'heading.settlementFrom' |  translate}} : </p>
+	<nz-date-picker [nzFormat]="'dd/MM/YYYY'" class="disburse-date" [(ngModel)]="disburseFilter.settledAccountsFrom"	*ngIf="formName == 'disburseList' " (ngModelChange)="disburseDateChange($event,'settledAccountsFrom')"  [nzMode]="'date'"></nz-date-picker>
+	<p 	*ngIf="formName == 'disburseList' ">{{'heading.settlementTo' |  translate}} : </p>
+	<nz-date-picker [nzFormat]="'dd/MM/YYYY'" class="disburse-date" [(ngModel)]="disburseFilter.settledAccountsTo"	*ngIf="formName == 'disburseList' " (ngModelChange)="disburseDateChange($event,'settledAccountsTo')"  [nzMode]="'date'"></nz-date-picker>
+	<nz-select
+		class="request-type"
+		*ngIf="formName == 'reports'"
+		[(ngModel)]="reportsType"
+		(ngModelChange)="onRequestTypeChange($event)"
+	>
+		<nz-option
+			*ngFor="let option of ReportsTypes"
+			[nzValue]="option.value"
+			[nzLabel]="option.label | translate"
+		></nz-option>
+	</nz-select>
+	<button
+		*ngIf="enableDownload"
+		nz-button
+		nzType="default"
+		(click)="onDownload.emit()"
+	>
+		{{ 'button.downloadReports' | translate }}
+	</button>
+	<button
+		*ngIf="formName == 'expenseReimburseData' && mode !== 'view'"
+		nz-button
+		nzType="default"
+		(click)="onMethodUpdate.emit()"
+	>
+		{{ 'button.updateExpenseMethod' | translate }}
+	</button>
+	<button
+		class="request-type"
+		*ngIf="formName == 'expenseReimburseData' && mode !== 'view'"
+		nz-button
+		(click)="addNewRow()"
+		nzType="primary"
+	>
+		<i nz-icon nzType="plus" nzTheme="outline"></i>
+		{{ 'button.addNew' | translate }}
+	</button>
+	<div class="search-bar">
+		<nz-input-group [nzSuffix]="suffixIconSearch">
+			<input
+				type="text"
+				nz-input
+				[placeholder]="'heading.search' | translate"
+				(ngModelChange)="onSearchChange($event)"
+				[(ngModel)]="searchTerm"
+			/>
+		</nz-input-group>
+		<ng-template #suffixIconSearch>
+			<i nz-icon nzType="search"></i>
+		</ng-template>
+	</div>
+</div>
+<nz-table
+	#rowSelectionTable
+	[nzShowPagination]="true"
+	[nzShowSizeChanger]="false"
+	[nzPageSize]="pageSize"
+	[nzData]="searchTerm.length > 0 ? filteredList : tableData"
+	(nzCurrentPageDataChange)="onCurrentPageDataChange($event)"
+	[nzScroll]="scroll"
+>
+	<thead>
+		<tr>
+			<th
+				[nzWidth]="'50px'"
+				*ngIf="enableCheckBox"
+				[nzChecked]="checked"
+				[nzIndeterminate]="indeterminate"
+				(nzCheckedChange)="onAllChecked($event)"
+			></th>
+			<th
+			[ngStyle]="{'text-align': direction ==='rtl' ? 'right' :'left'}"
+				[nzWidth]="header.includes('id') ? '75px' : 'auto'"
+				*ngFor="let header of tableHeaders"
+			>
+				{{ header | translate }}
+			</th>
+
+			<th
+				[nzAlign]="'center'"
+				[nzWidth]="'130px'"
+				*ngIf="enableEdit || enableDelete || enableView"
+			>
+				{{ 'heading.action' | translate }}
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr
+		    [ngStyle]="{'text-align': direction ==='rtl' ? 'right' :'left'}"
+			*ngFor="let data of rowSelectionTable.data; let i = index"
+			(click)="onSelect($event, data)"
+		>
+			<td
+				*ngIf="enableCheckBox"
+				[nzChecked]="setOfCheckedId.has(data.id)"
+				[nzDisabled]="data.disabled"
+				(nzCheckedChange)="onItemChecked(data, $event)"
+			></td>
+			<!-- Cost Center Code -->
+			<td *ngIf="data.costCenterCode && formName == 'cost'">
+				{{ data.costCenterCode }}
+			</td>
+			<td *ngIf="data.costCenterDesc && formName == 'cost'">
+				{{ data.costCenterDesc }}
+			</td>
+			<td *ngIf="data.statusType && formName == 'cost'">
+				{{ data.statusType }}
+			</td>
+
+			<!-- Department -->
+			<td *ngIf="data.deptCode && formName == 'department'">
+				{{ data.deptCode }}
+			</td>
+			<td *ngIf="data.deptName && formName == 'department'">
+				{{ data.deptName }}
+			</td>
+			<td *ngIf="data.costCenter && formName == 'department'">
+				{{ data.costCenter }}
+			</td>
+			<td *ngIf="data.statusType && formName == 'department'">
+				{{ data.statusType }}
+			</td>
+
+			<!-- User Roles -->
+			<td *ngIf="data.roleCode && formName == 'role'">{{ data.roleCode }}</td>
+			<td *ngIf="data.roleName && formName == 'role'">{{ data.roleName }}</td>
+			<td *ngIf="data.maxPettyCashAllowed && formName == 'role'">
+				{{ data.maxPettyCashAllowed }}
+			</td>
+
+			<!-- Employment Types -->
+			<td *ngIf="data.empJobTypeCode && formName == 'employeeType'">
+				{{ data.empJobTypeCode }}
+			</td>
+			<td *ngIf="data.empJobTypeDesc && formName == 'employeeType'">
+				{{ data.empJobTypeDesc }}
+			</td>
+
+			<!-- Expense Types -->
+			<td *ngIf="data.expenseTypeName && formName == 'expense'">
+				{{ data.expenseTypeName }}
+			</td>
+			<td *ngIf="data.expenseTypeDesc && formName == 'expense'">
+				{{ data.expenseTypeDesc }}
+			</td>
+			<td *ngIf="data.statusType && formName == 'expense'">
+				{{ data.statusType }}
+			</td>
+
+			<!-- Approval Levels -->
+			<td *ngIf="data.level && formName == 'level'">{{ data.level }}</td>
+			<td *ngIf="data.levelDesc && formName == 'level'">
+				{{ data.levelDesc }}
+			</td>
+
+			<!-- Approval Groups -->
+			<td *ngIf="data.approvalGroupCode && formName == 'group'">
+				{{ data.approvalGroupCode }}
+			</td>
+			<td *ngIf="data.approvalGroupDesc && formName == 'group'">
+				{{ data.approvalGroupDesc }}
+			</td>
+
+			<!-- Approval Role Map -->
+			<td *ngIf="data.approvalGroup && formName == 'roleMap'">
+				{{ data.approvalGroup }}
+			</td>
+			<td *ngIf="data.role && formName == 'roleMap'">{{ data.role }}</td>
+			<td *ngIf="data.approvalLevel && formName == 'roleMap'">
+				{{ data.approvalLevel }}
+			</td>
+			<td *ngIf="data.employeeName && formName == 'roleMap'">
+				{{ data.employeeName }}
+			</td>
+			<!-- Approval Status Types -->
+			<td *ngIf="data.status && formName == 'status'">{{ data.status }}</td>
+			<td *ngIf="data.statusDesc && formName == 'status'">
+				{{ data.statusDesc }}
+			</td>
+
+			<!-- Employees -->
+			<td *ngIf="data.firstName && formName == 'employee'">
+				{{ data.firstName }}
+			</td>
+			<td *ngIf="data.lastName && formName == 'employee'">{{ data.email }}</td>
+			<td *ngIf="data.email && formName == 'employee'">
+				{{ data.mobileNumber }}
+			</td>
+			<td *ngIf="data.mobileNumber && formName == 'employee'">
+				{{ data.doj | date: 'dd/MM/yyyy' }}
+			</td>
+			<td *ngIf="data.doj && formName == 'employee'">{{ data.nationality }}</td>
+
+			<!-- Projects -->
+			<td *ngIf="data.projectName && formName == 'project'">
+				{{ data.projectName }}
+			</td>
+			<td *ngIf="data.projectDesc && formName == 'project'">
+				{{ data.projectDesc }}
+			</td>
+			<td *ngIf="data.projectManager && formName == 'project'">
+				{{ data.projectManager }}
+			</td>
+			<td *ngIf="data.statusType && formName == 'project'">
+				{{ data.statusType }}
+			</td>
+			
+
+			<!-- Sub Projects -->
+			<td *ngIf="data.projectName && formName == 'subProject'">
+				{{ data.projectName }}
+			</td>
+			<td *ngIf="data.subProjectName && formName == 'subProject'">
+				{{ data.subProjectName }}
+			</td>
+			<td *ngIf="data.subProjectDesc && formName == 'subProject'">
+				{{ data.subProjectDesc }}
+			</td>
+		
+
+			<!-- Work Tasks -->
+			<td *ngIf="data.subProject && formName == 'task'">
+				{{ data.subProject }}
+			</td>
+			<td *ngIf="data.taskName && formName == 'task'">{{ data.taskName }}</td>
+			<td *ngIf="data.taskDesc && formName == 'task'">{{ data.taskDesc }}</td>
+			
+
+			<!-- Users -->
+			<td *ngIf="data.userName && formName == 'user'">
+				{{ data.userName }}
+			</td>
+			<td *ngIf="data.email && formName == 'user'">
+				{{ data.email }}
+			</td>
+
+			<!-- User Roles -->
+			<td *ngIf="data.name && formName == 'userRoles'">
+				{{ data.name }}
+			</td>
+
+			<!-- Status Types -->
+			<td *ngIf="data.status && formName == 'statusTypes'">
+				{{ data.status }}
+			</td>
+
+			<!-- Currency -->
+			<td *ngIf="data.currencyCode && formName == 'currency'">
+				{{ data.currencyCode }}
+			</td>
+			<td *ngIf="data.country && formName == 'currency'">
+				{{ data.country }}
+			</td>
+
+			<!-- Cash Request -->
+			<td *ngIf="data.id && formName == 'cashRequest'">
+				{{ data.id }}
+			</td>
+			<td *ngIf="data && formName == 'cashRequest'">
+				{{ limitString(data.department) }}
+			</td>
+			<td *ngIf="data && formName == 'cashRequest'">
+				{{ data.project }}
+			</td>
+			<td *ngIf="data.pettyClaimRequestDesc && formName == 'cashRequest'">
+				{{ data.pettyClaimRequestDesc }}
+			</td>
+			<td *ngIf="data.pettyClaimAmount && formName == 'cashRequest'">
+				{{ data.pettyClaimAmount }}
+			</td>
+
+			<td *ngIf="data.approvalStatusType && formName == 'cashRequest'">
+				{{ data.approvalStatusType }}
+			</td>
+
+			<!-- Travel Request -->
+			<td *ngIf="data.id && formName == 'travelRequest'">
+				{{ data.id }}
+			</td>
+			<!-- <td *ngIf="data.travelStartDate && formName == 'travelRequest'">
+				{{ data.travelStartDate | date: 'dd/MM/yyyy' }}
+			</td>
+			<td *ngIf="data.travelEndDate && formName == 'travelRequest'">
+				{{ data.travelEndDate | date: 'dd/MM/yyyy' }}
+			</td> -->
+			<td *ngIf="data && formName == 'travelRequest'">
+				{{ limitString(data.departmentName) }}
+			</td>
+			<td *ngIf="data && formName == 'travelRequest'">
+				{{ data.projectName }}
+			</td>
+			<td *ngIf="data.travelPurpose && formName == 'travelRequest'">
+				{{ data.travelPurpose }}
+			</td>
+			<td *ngIf="data.approvalStatusType && formName == 'travelRequest'">
+				{{ data.approvalStatusType }}
+			</td>
+
+			<!-- Inbox -->
+			<td
+				*ngIf="
+					(data?.travelApprovalRequestId || data?.pettyCashRequestId) &&
+					formName == 'inbox'
+				"
+			>
+				{{ data.travelApprovalRequestId || data?.pettyCashRequestId }}
+			</td>
+
+			<td *ngIf="data.employeeName && formName == 'inbox'">
+				{{ limitString(data.employeeName) }}
+			</td>
+			<td *ngIf="data && formName == 'inbox'">
+				{{ limitString(data.departmentName) }}
+			</td>
+			<td *ngIf="data && formName == 'inbox'">
+				{{ data.projectName }}
+			</td>
+			<td *ngIf="data.reqDate && formName == 'inbox'">
+				{{ data.reqDate | date: 'dd/MM/yyyy' }}
+			</td>
+			<td
+				*ngIf="
+					(data?.pettyClaimAmount || data?.totalClaimAmount || data?.claimAmount ) &&
+					formName == 'inbox'
+				"
+			>
+				{{ data.claimAmount  || data.pettyClaimAmount || data?.totalClaimAmount }}
+			</td>
+
+			<td *ngIf="data.approvalStatusType && formName == 'inbox'">
+				{{ data.approvalStatusType }}
+			</td>
+
+			<!-- Expense Inbox -->
+			<td
+				*ngIf="
+					data.expenseReimburseRequestId &&
+					formName == 'expense-reimburse-inbox'
+				"
+			>
+				{{ data.expenseReimburseRequestId }}
+			</td>
+			<td *ngIf="data.employeeName && formName == 'expense-reimburse-inbox'">
+				{{ limitString(data.employeeName) }}
+			</td>
+			<td *ngIf="data && formName == 'expense-reimburse-inbox'">
+				{{ limitString(data.departmentName) }}
+			</td>
+			<td *ngIf="data && formName == 'expense-reimburse-inbox'">
+				{{ data.projectName }}
+			</td>
+			<td *ngIf="data.expReimReqDate && formName == 'expense-reimburse-inbox'">
+				{{ data.expReimReqDate | date: 'dd/MM/yyyy' }}
+			</td>
+			<td
+				*ngIf="data.totalClaimAmount && formName == 'expense-reimburse-inbox'"
+			>
+				{{ data.totalClaimAmount }}
+			</td>
+
+			<td
+				*ngIf="data.approvalStatusType && formName == 'expense-reimburse-inbox'"
+			>
+				{{ data.approvalStatusType }}
+			</td>
+
+			<!-- Expense Sub Claims -->
+			<td *ngIf="data && formName == 'expenseReimburseData'">
+				{{ data.invoiceNo }}
+			</td>
+			<td *ngIf="data?.expenseType && formName == 'expenseReimburseData'">
+				{{ data.expenseType }}
+			</td>
+			<td
+				*ngIf="
+					!data.expenseType &&
+					data.expenseTypeId &&
+					formName == 'expenseReimburseData'
+				"
+			>
+				{{ getExpenseName(data.expenseTypeId) }}
+			</td>
+			<td *ngIf="data && formName == 'expenseReimburseData'">
+				{{ data.invoiceDate | date: 'dd/MM/yyyy' }}
+			</td>
+			<td *ngIf="data && formName == 'expenseReimburseData'">
+				{{ data.expenseReimbClaimAmount + data.taxAmount }}
+			</td>
+
+			<!-- Expense -->
+			<td *ngIf="data && formName == 'expenseReimburseList'">
+				{{ data.id }}
+			</td>
+			<td *ngIf="data && formName == 'expenseReimburseList'">
+				{{ data.expenseReportTitle }}
+			</td>
+			<td *ngIf="data && formName == 'expenseReimburseList'">
+				{{ limitString(data.departmentName) }}
+			</td>
+			<td *ngIf="data && formName == 'expenseReimburseList'">
+				{{ data.projectName }}
+			</td>
+			<td *ngIf="data && formName == 'expenseReimburseList'">
+				{{ data.totalClaimAmount }}
+			</td>
+
+			<td *ngIf="data && formName == 'expenseReimburseList'">
+				{{ data.approvalStatusType }}
+			</td>
+
+			<!--Disburse-->
+			<td *ngIf="data.id && formName == 'disburseList'">
+				{{ data.id }}
+			</td>
+			<td *ngIf="data.employeeName && formName == 'disburseList'">
+				{{ data.employeeName }}
+			</td>
+			<td *ngIf="data && formName == 'disburseList'">
+				{{ data.departmentName }}
+			</td>
+			<td *ngIf="data && formName == 'disburseList'">
+				{{ data.projectName }}
+			</td>
+			<td *ngIf="data && formName == 'disburseList'">
+				{{ data.claimAmount }}
+			</td>
+
+			<td *ngIf="data && formName == 'disburseList'">
+				{{ commonService.getSettlementType(data.isSettledAmountCredited) }}
+			</td>
+
+			
+			<!-- Reports -->
+
+			<td
+				*ngIf="
+					(data?.travelApprovalRequestId ||
+						data?.pettyCashRequestId ||
+						data?.expenseReimburseReqId ||
+						data?.id) &&
+					formName == 'reports'
+				"
+			>
+				{{
+					data.travelApprovalRequestId ||
+						data?.pettyCashRequestId ||
+						data?.expenseReimburseReqId ||
+						data?.id
+				}}
+			</td>
+			<td *ngIf="(data.fullName || data.userFullName) && formName == 'reports'">
+				{{ data.fullName  || data.userFullName}}
+			</td>
+			<td *ngIf="data.email && formName == 'reports'">
+				{{ data.email }}
+			</td>
+			<td *ngIf="data.mobileNumber && formName == 'reports'">
+				{{ data.mobileNumber }}
+			</td>
+
+			<td *ngIf="data.doj && formName == 'reports'">
+				{{ data.doj | date: 'dd/MM/yyyy' }}
+			</td>
+			<td *ngIf="data.jobRole && formName == 'reports'">
+				{{ data.jobRole }}
+			</td>
+
+			<td *ngIf="data.employeeName && formName == 'reports'">
+				{{ data.employeeName }}
+			</td>
+
+			<td *ngIf="data.costCenter && formName == 'reports'">
+				{{ data.costCenter }}
+			</td>
+			<td *ngIf="data && formName == 'reports'">
+				{{ data.departmentName || data.department  }}
+			</td>
+			<td *ngIf="(data && !data?.doj) && formName == 'reports'">
+				{{ data.projectName || data.project  }}
+			</td>
+			<td
+				*ngIf="
+					(data?.recordDate &&  formName != 'disburseList') || ((data?.reqRaisedDate|| data.invoiceDate) && formName == 'reports')
+				"
+			>
+				{{ data?.recordDate || data?.reqRaisedDate || data.invoiceDate | date: 'dd/MM/yyyy' }}
+			</td>
+			<td
+				*ngIf="
+					(data?.pettyClaimAmount ||
+						data?.totalClaimAmount ||
+						data?.claimAmount || data.expenseReimbClaimAmount) &&
+					formName == 'reports'
+				"
+			>
+				{{
+					data.pettyClaimAmount || data?.totalClaimAmount || data?.claimAmount || data.expenseReimbClaimAmount
+				}}
+			</td>
+			<td *ngIf="data.expenseType && formName == 'reports'">
+				{{ data.expenseType }}
+			</td>
+			<td *ngIf="data.approvalStatusType && formName == 'reports'">
+				{{ data.approvalStatusType }}
+			</td>
+
+			<td
+				class="action-data"
+				[nzAlign]="'center'"
+				*ngIf="enableDelete || enableEdit || enableView"
+			>
+				<div class="action-data__btns">
+					<button
+						*ngIf="enableEdit && (canShow(data) || !data.id)"
+						(click)="edit($event, data, i)"
+						nz-button
+						nzType="default"
+						nzShape="circle"
+						nz-popover
+						[nzPopoverContent]="'heading.edit' | translate"
+					>
+						<i nz-icon nzType="edit" nzTheme="outline"></i>
+					</button>
+					<button
+						*ngIf="enableDelete && (canShow(data) || !data.id)"
+						(click)="showConfirm($event, data, i)"
+						nz-button
+						nzType="default"
+						nzShape="circle"
+						nz-popover
+						[nzPopoverContent]="'heading.delete' | translate"
+					>
+						<i nz-icon nzType="delete" nzTheme="outline"></i>
+					</button>
+					<button
+						*ngIf="enableDuplicate || (formName == 'expenseReimburseList' && data.approvalStatusType === 'Rejected')"
+						(click)="duplicate($event, data)"
+						nz-button
+						nzType="default"
+						nzShape="circle"
+						nz-popover
+						[nzPopoverContent]="'heading.duplicate' | translate"
+					>
+						<i nz-icon nzType="copy" nzTheme="outline"></i>
+					</button>
+					<button
+						*ngIf="enableView"
+						(click)="view($event, data)"
+						nz-button
+						nzType="default"
+						nzShape="circle"
+						nz-popover
+						[nzPopoverContent]="'heading.view' | translate"
+					>
+						<i nz-icon nzType="eye" nzTheme="outline"></i>
+					</button>
+				</div>
+			</td>
+		</tr>
+	</tbody>
+</nz-table>

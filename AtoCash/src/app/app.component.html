@@ -1,0 +1,7 @@
+<ng-template #indicatorTemplate 
+><i class="indicator" nz-icon nzType="loading"></i
+></ng-template>
+<nz-spin [nzSpinning]="loading" [nzIndicator]="indicatorTemplate">
+
+<router-outlet></router-outlet>
+</nz-spin>

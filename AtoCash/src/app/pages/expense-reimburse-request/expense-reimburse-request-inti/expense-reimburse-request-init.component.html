@@ -1,0 +1,164 @@
+<div class="enable-project">
+  <p class="label">{{ "form.expenseReimburse.enableProject" | translate }}</p>
+  <nz-switch
+    nzSize="small"
+    (ngModelChange)="refreshForm($event)"
+    [(ngModel)]="enableProject"
+  ></nz-switch>
+</div>
+
+
+<form nz-form [formGroup]="form" (ngSubmit)="submitForm()">
+  <nz-form-item>
+    <nz-form-label [nzSpan]="7" nzRequired nzFor="expenseTitle">{{
+      "form.expenseReimburse.title" | translate
+    }}</nz-form-label>
+
+    <nz-form-control
+      [nzSpan]="15"
+      [nzErrorTip]="'validation.required' | translate"
+    >
+      <input
+        formControlName="expenseReportTitle"
+        type="text"
+        nz-input
+        [placeholder]="'form.expenseReimburse.title' | translate"
+        id="expenseTitle"
+      />
+    </nz-form-control>
+  </nz-form-item>
+  <!-- <nz-form-item>
+    <nz-form-label [nzSpan]="7" nzRequired nzFor="invoiceNo">{{
+      "form.expenseReimburse.employee" | translate
+    }}</nz-form-label>
+
+    <nz-form-control
+      [nzSpan]="15"
+      [nzErrorTip]="'validation.required' | translate"
+    >
+      <input
+        formControlName="employeeId"
+        type="text"
+        nz-input
+        [placeholder]="'form.expenseReimburse.employee' | translate"
+        id="employeeId"
+        disabled="true"
+      />
+    </nz-form-control>
+  </nz-form-item> -->
+  
+  <nz-form-item>
+    <nz-form-label [nzSpan]="7" nzRequired nzFor="status">{{
+      "form.employee.currency" | translate
+    }}</nz-form-label>
+
+    <nz-form-control [nzSpan]="15" [nzErrorTip]="'validation.required' |translate ">
+      <nz-select
+        nzShowSearch
+        nzAllowClear
+        id="status"
+        formControlName="currencyTypeId"
+        [nzPlaceHolder]="'form.employee.currency' | translate"
+      >
+        <nz-option *ngFor="let option of currencies" [nzValue]="option.id" [nzLabel]="option.currencyCode"></nz-option>
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+
+
+
+  <nz-form-item *ngIf="enableProject">
+    <nz-form-label [nzSpan]="7" nzRequired nzFor="project">{{
+      "form.expenseReimburse.project" | translate
+    }}</nz-form-label>
+    <nz-form-control
+      [nzSpan]="15"
+      [nzErrorTip]="'validation.required' | translate"
+    >
+      <nz-select
+        nzShowSearch
+        nzAllowClear
+        id="project"
+        formControlName="projectId"
+        [nzPlaceHolder]="'form.expenseReimburse.project' | translate"
+        (ngModelChange)="selectProject($event)"
+      >
+        <nz-option
+          *ngFor="let option of projects"
+          [nzValue]="option.id"
+          [nzLabel]="option.projectName"
+        ></nz-option>
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item
+    *ngIf="
+      enableProject &&
+      form.controls['projectId'].value &&
+      subProjects.length > 0
+    "
+  >
+    <nz-form-label [nzSpan]="7"  nzFor="subProject">{{
+      "form.expenseReimburse.subProject" | translate
+    }}</nz-form-label>
+    <nz-form-control
+      [nzSpan]="15"
+      [nzErrorTip]="'validation.required' | translate"
+    >
+      <nz-select
+        nzShowSearch
+        nzAllowClear
+        id="subProject"
+        formControlName="subProjectId"
+        [nzPlaceHolder]="'form.expenseReimburse.subProject' | translate"
+        (ngModelChange)="selectSubProject($event)"
+      >
+        <nz-option
+          *ngFor="let option of subProjects"
+          [nzValue]="option.id"
+          [nzLabel]="option.subProjectName"
+        ></nz-option>
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item
+    *ngIf="enableProject && form.controls['subProjectId'].value && tasks.length > 0">
+    <nz-form-label [nzSpan]="7"  nzFor="task">{{
+      "form.expenseReimburse.task" | translate
+    }}</nz-form-label>
+    <nz-form-control
+      [nzSpan]="15"
+      [nzErrorTip]="'validation.required' | translate"
+    >
+      <nz-select
+        nzShowSearch
+        nzAllowClear
+        id="task"
+        formControlName="workTaskId"
+        [nzPlaceHolder]="'form.expenseReimburse.task' | translate"
+      >
+        <nz-option
+          *ngFor="let option of tasks"
+          [nzValue]="option.id"
+          [nzLabel]="option.taskName"
+        ></nz-option>
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-control class="action-control">
+      <button nz-button nzType="primary" [disabled]="(!form.valid && fileList.length == 0) || (enableProject && !form.controls['projectId'].value)">
+       {{getModalButton(data)}}
+      </button>
+    </nz-form-control>
+  </nz-form-item>
+</form>
+<ng-template #action>
+  <button nz-button routerLink="/expense-reimburse" nzType="primary">
+    <i nz-icon nzType="arrow-left"></i>
+    {{ "button.back" | translate }}
+  </button>
+</ng-template>

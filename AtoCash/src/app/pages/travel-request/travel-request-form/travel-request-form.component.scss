@@ -1,0 +1,11 @@
+.enable-project {
+    display: flex;
+    justify-content: flex-end;
+    .label {
+        margin: 0 10px;
+    }
+}
+
+nz-date-picker {
+    width: 100%;
+}

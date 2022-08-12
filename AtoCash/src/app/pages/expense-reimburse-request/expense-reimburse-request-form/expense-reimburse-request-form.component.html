@@ -1,0 +1,215 @@
+<form nz-form [formGroup]="form" (ngSubmit)="submitForm()">
+	<nz-form-item>
+		<nz-form-label [nzSpan]="7" nzRequired nzFor="project">{{
+			'form.expenseReimburse.expense' | translate
+		}}</nz-form-label>
+		<nz-form-control
+			[nzSpan]="15"
+			[nzErrorTip]="'validation.required' | translate"
+		>
+			<nz-select
+				nzShowSearch
+				nzAllowClear
+				id="expenseTypeId"
+				formControlName="expenseTypeId"
+				[nzPlaceHolder]="'form.expenseReimburse.expense' | translate"
+			>
+				<nz-option
+					*ngFor="let option of expenseType"
+					[nzValue]="option.id"
+					[nzLabel]="option.expenseTypeName"
+				></nz-option>
+			</nz-select>
+		</nz-form-control>
+	</nz-form-item>
+	<nz-form-item>
+		<nz-form-label [nzSpan]="7" nzRequired nzFor="invoiceNo">{{
+			'form.expenseReimburse.invoiceNo' | translate
+		}}</nz-form-label>
+
+		<nz-form-control
+			[nzSpan]="15"
+			[nzErrorTip]="'validation.required' | translate"
+		>
+			<input
+				formControlName="invoiceNo"
+				type="text"
+				nz-input
+				[placeholder]="'form.expenseReimburse.invoiceNo' | translate"
+				id="invoiceNo"
+			/>
+		</nz-form-control>
+	</nz-form-item>
+	<nz-form-item>
+		<nz-form-label [nzSpan]="7" nzRequired nzFor="invoiceDate">{{
+			'form.expenseReimburse.invoiceDate' | translate
+		}}</nz-form-label>
+
+		<nz-form-control
+			[nzSpan]="15"
+			[nzErrorTip]="'validation.required' | translate"
+		>
+			<nz-date-picker
+				[nzDisabledDate]="disabledDate"
+				id="invoiceDate"
+				formControlName="invoiceDate"
+				[nzPlaceHolder]="'form.expenseReimburse.invoiceDate' | translate"
+			></nz-date-picker>
+		</nz-form-control>
+	</nz-form-item>
+	<nz-form-item>
+		<nz-form-label [nzSpan]="7" nzRequired nzFor="expenseReimbClaimAmount">{{
+			'form.expenseReimburse.expenseReimburseAmount' | translate
+		}}</nz-form-label>
+		<nz-form-control
+			[nzSpan]="15"
+			[nzErrorTip]="'validation.required' | translate"
+		>
+			<input
+				formControlName="expenseReimbClaimAmount"
+				type="number"
+				nz-input
+				[placeholder]="
+					'form.expenseReimburse.expenseReimburseAmount' | translate
+				"
+				id="expenseReimbClaimAmount"
+			/>
+		</nz-form-control>
+	</nz-form-item>
+	<nz-form-item>
+		<nz-form-label nzRequired [nzSpan]="7" nzFor="vendor">{{
+			'form.expenseReimburse.vendor' | translate
+		}}</nz-form-label>
+
+		<nz-form-control
+			[nzSpan]="15"
+			[nzErrorTip]="'validation.required' | translate"
+		>
+			<input
+				formControlName="vendor"
+				type="text"
+				nz-input
+				[placeholder]="'form.expenseReimburse.vendor' | translate"
+				id="vendor"
+			/>
+		</nz-form-control>
+	</nz-form-item>
+	<nz-form-item>
+		<nz-form-label nzRequired [nzSpan]="7" nzFor="tax">{{
+			'form.expenseReimburse.tax' | translate
+		}}</nz-form-label>
+
+		<nz-form-control
+			[nzSpan]="15"
+			[nzErrorTip]="'validation.required' | translate"
+		>
+			<input
+				formControlName="tax"
+				type="number"
+				nz-input
+				[placeholder]="'form.expenseReimburse.tax' | translate"
+				id="tax"
+				[max]="100"
+			/>
+		</nz-form-control>
+	</nz-form-item>
+	<nz-form-item>
+		<nz-form-label nzRequired [nzSpan]="7" nzFor="vendor">{{
+			'form.expenseReimburse.taxAmount' | translate
+		}}</nz-form-label>
+
+		<nz-form-control
+			[nzSpan]="15"
+			[nzErrorTip]="'validation.required' | translate"
+		>
+			<input
+				formControlName="taxAmount"
+				type="text"
+				nz-input
+				[placeholder]="'form.expenseReimburse.taxAmount' | translate"
+				id="vendor"
+				[disabled]="true"
+			/>
+		</nz-form-control>
+	</nz-form-item>
+	<nz-form-item>
+		<nz-form-label nzRequired [nzSpan]="7" nzFor="vendor">{{
+			'form.expenseReimburse.location' | translate
+		}}</nz-form-label>
+
+		<nz-form-control
+			[nzSpan]="15"
+			[nzErrorTip]="'validation.required' | translate"
+		>
+			<input
+				formControlName="location"
+				type="text"
+				nz-input
+				[placeholder]="'form.expenseReimburse.location' | translate"
+				id="vendor"
+			/>
+		</nz-form-control>
+	</nz-form-item>
+	<nz-form-item>
+		<nz-form-label nzRequired [nzSpan]="7" nzFor="tax">{{
+			'form.expenseReimburse.description' | translate
+		}}</nz-form-label>
+
+		<nz-form-control
+			[nzSpan]="15"
+			[nzErrorTip]="'validation.required' | translate"
+		>
+			<textarea
+				formControlName="description"
+				[placeholder]="'form.expenseReimburse.description' | translate"
+				nz-input
+				[nzAutosize]="{ minRows: 2, maxRows: 6 }"
+			></textarea>
+		</nz-form-control>
+	</nz-form-item>
+
+	<nz-form-item>
+		<nz-form-label [nzSpan]="7" nzRequired nzFor="task">{{
+			'form.expenseReimburse.documents' | translate
+		}}</nz-form-label>
+		<nz-form-control
+			[nzSpan]="15"
+			[nzErrorTip]="'validation.required' | translate"
+		>
+			<nz-upload
+				nzType="drag"
+				[nzMultiple]="true"
+				[nzBeforeUpload]="beforeUpload"
+				[(nzFileList)]="fileList"
+			>
+				<p class="ant-upload-drag-icon">
+					<i nz-icon nzType="inbox"></i>
+				</p>
+				<p class="ant-upload-text">Click or drag file to this area to upload</p>
+				<p class="ant-upload-hint">Atleast one Document has to be submitted!</p>
+			</nz-upload>
+		</nz-form-control>
+	</nz-form-item>
+
+	<nz-form-item>
+		<nz-form-control class="action-control">
+			<button
+				nz-button
+				nzType="primary"
+				[disabled]="
+					!form.valid ||
+					fileList.length === 0 ||
+					!form.controls['expenseReimbClaimAmount'].value
+				"
+			>
+				{{ getButtonLabel() }}
+			</button>
+		</nz-form-control>
+	</nz-form-item>
+</form>
+<ng-template #action>
+	<button nz-button routerLink="/expense-reimburse" nzType="primary">
+		<i nz-icon nzType="arrow-left"></i>
+		{{ 'button.back' | translate }}
+	</button>
+</ng-template>

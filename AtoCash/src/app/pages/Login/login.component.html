@@ -1,0 +1,73 @@
+<nz-layout>
+	<nz-header>
+		<div class="logo">
+			<a>
+				<img src="assets/logos/logo-2.png" alt="logo" />
+			</a>
+			<app-translations></app-translations>
+		</div>
+	</nz-header>
+	<nz-content>
+		<div class="banner">
+			<img src="assets/logos/banner-four.svg" alt="banner" />
+		</div>
+		<form
+			nz-form
+			[formGroup]="form"
+			class="login-form"
+			(ngSubmit)="submitForm()"
+		>
+			<nz-form-item class="form-item" >
+				<nz-form-control [nzErrorTip]="'validation.required' | translate">
+					<nz-input-group nzPrefixIcon="user">
+						<input
+							type="email"
+							nz-input
+							formControlName="email"
+							[placeholder]="'form.login.email' | translate"
+						/>
+					</nz-input-group>
+				</nz-form-control>
+			</nz-form-item>
+			<nz-form-item class="form-item" >
+				<nz-form-control [nzErrorTip]="'validation.required' | translate">
+					<ng-template #suffixIcon>
+						<i
+							nz-icon
+							(click)="showPassword = !showPassword"
+							[nzType]="!showPassword ? 'eye-invisible' : 'eye'"
+						></i>
+					</ng-template>
+					<nz-input-group nzPrefixIcon="lock" [nzAddOnAfter]="suffixIcon">
+						<input
+							[type]="showPassword ? 'text' : 'password'"
+							nz-input
+							formControlName="password"
+							[placeholder]="'form.login.password' | translate"
+						/>
+					</nz-input-group>
+				</nz-form-control>
+			</nz-form-item>
+			<div nz-row class="login-form-margin">
+				<div nz-col [nzSpan]="12">
+					<label nz-checkbox formControlName="remember">
+						<span>{{ 'form.login.rememberMe' | translate }}</span>
+					</label>
+				</div>
+				<div nz-col [nzSpan]="12">
+					<a class="login-form-forgot" (click)="forgetPassword()">{{
+						'form.login.forgetPassword' | translate
+					}}</a>
+				</div>
+			</div>
+			<button
+				nz-button
+				class="login-form-button login-form-margin"
+				[nzType]="'primary'"
+			>
+				{{ 'button.login' | translate }}
+			</button>
+		</form>
+	</nz-content>
+	<nz-footer>© AtoCash</nz-footer>
+</nz-layout>

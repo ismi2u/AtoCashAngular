@@ -1,0 +1,512 @@
+{
+	"heading": {
+		"edit": "Edit",
+		"delete": "Delete",
+		"view": "View More",
+		"duplicate": "Duplicate",
+		"chargeTo": "Charge To",
+		"totalAmount": "Total Amount",
+		"requestDetails": "Request Details",
+		"expenseDetails": "Expense Details",
+		"information": "Information",
+		"yourCard": "Your Card",
+		"currentBalance": "Current Balance",
+		"maxLimit": "Max Limit",
+		"onHand": "On Hand",
+		"accountStatus": "Status",
+		"bankCredit": "Bank Credit",
+		"walletCredit": "Wallet Credit",
+		"userRole": "Access Roles",
+		"assignRole": "Assign Roles",
+		"assignProject": "Assign Project",
+		"user": "Users",
+		"task": "Tasks",
+		"subProject": "Sub Projects",
+		"project": "Projects",
+		"approval": "Approvals",
+		"level": "Levels",
+		"group": "Groups",
+		"roleMap": "Role Maps",
+		"approvalLevel": "Approval Levels",
+		"approvalGroup": "Approval Groups",
+		"approvalRoleMap": "Approval Role Maps",
+		"approvalStatus": "Approval Status",
+		"dashboard": "Dashboard",
+		"costCenter": "Cost Centers",
+		"department": "Departments",
+		"role": "Job Roles",
+		"employmentType": "Employment Types",
+		"expenseType": "Expense Types",
+		"expenseStatus": "Expense Status",
+		"cashAdvanceStatus": "Cash Advance",
+		"myInbox": "My Inbox",
+		"report": "Reports",
+		"inbox": "My Inbox",
+		"action": "Action",
+		"employees": "Employees",
+		"travelRequest": "Travel Request",
+		"expenseReimburse": "Expense Reimburse",
+		"status": "Status Types",
+		"currency": "Currency",
+		"projectManagement": "Project Management",
+		"preferences": "Preferences",
+		"employeeManagement": "Employee Management",
+		"filters": "Filters",
+		"search": "Search",
+		"assignEmployeesToProject": "Assign Employees to Project",
+		"employeesAssigned": "Employees Not Assigned",
+		"approved": "Approved",
+		"rejected": "Rejected",
+		"pending": "Pending",
+		"assigned": "Assigned",
+		"notAssigned": "Not Assigned",
+		"employee": "Employee",
+		"disburse": "Acc. Payable",
+		"expenseReimburseInitialization": "Expense Reimburse Initialization",
+		"subClaims": "Expense Sub Claims",
+		"settlementStatus":"Settlement Status",
+		"settlementFrom": "From",
+		"settlementTo": "To",
+		"pendingApproval": "Pending Approvals",
+        "pendingSettlement" : "Pending Settlements"
+	},
+	"form": {
+		"disburse": {
+			"comment": "Comment",
+			"additionalData": "Additional Data"
+		},
+		"currency": {
+			"currencyCode": "Code",
+			"currencyName": "Name",
+			"country": "Country"
+		},
+		"expenseReimburse": {
+			"expenseReimburseAmount": "Expense Amount",
+			"enableProject": "Enable Project",
+			"project": "Project",
+			"expense": "Expense",
+			"subProject": "Sub Project",
+			"task": "Task",
+			"documents": "Documents",
+			"invoiceNo": "Invoice No",
+			"invoiceDate": "Invoice Date",
+			"tax": "Tax (%)",
+			"vendor": "Vendor",
+			"description": "Description",
+			"taxAmount": "Tax Amount",
+			"title": " Expense Title",
+			"employee": " Employee",
+			"location": "Location"
+		},
+		"status": {
+			"status": "Status"
+		},
+		"cashAdvance": {
+			"employee": "Employee",
+			"advanceAmount": "Advance Amount",
+			"requestDescription": "Request Description",
+			"enableProject": "Enable Project",
+			"project": "Project",
+			"subProject": "Sub Project",
+			"task": "Task",
+			"currency": "Currency"
+		},
+		"travel": {
+			"startDate": "Start Date",
+			"endDate": "End Date",
+			"travelPurpose": "Travel Purpose",
+			"enableProject": "Enable Project",
+			"project": "Project",
+			"subProject": "Sub Project",
+			"task": "Task",
+			"currency": "Currency"
+		},
+		"login": {
+			"email": "Email",
+			"password": "Password",
+			"forgetPassword": "Forgot Password",
+			"rememberMe": "Remember Me"
+		},
+		"userRole": {
+			"roleName": "Role Name"
+		},
+		"user": {
+			"email": "Email",
+			"userName": "User Name",
+			"password": "Password",
+			"employee": "Employee"
+		},
+		"task": {
+			"subProject": "Sub Project",
+			"taskName": "Name",
+			"taskDescription": "Description"
+		},
+
+		"costCenter": {
+			"costCenterCode": "Cost Centre Code",
+			"costCenterDescription": "Cost Centre Name",
+			"status": "Status"
+		},
+		"department": {
+			"departmentCode": "Department Code",
+			"departmentName": "Department Name",
+			"costCenter": "Cost Center",
+			"status": "Status"
+		},
+		"role": {
+			"roleCode": "Role Code",
+			"roleName": "Role Name",
+			"maxAmount": "Max.Amount"
+		},
+		"employmentType": {
+			"employmentTypeName": "Name",
+			"employmentTypeDescription": "Description"
+		},
+		"expenseType": {
+			"expenseTypeName": "Name",
+			"expenseTypeDescription": "Description"
+		},
+		"approvalLevel": {
+			"level": "Level",
+			"levelDescription": "Description"
+		},
+		"approvalGroup": {
+			"groupCode": "Code",
+			"groupDescription": "Description"
+		},
+		"approvalRoleMap": {
+			"group": "Group",
+			"role": "Role",
+			"level": "Level"
+		},
+		"approvalStatus": {
+			"status": "Status",
+			"statusDescription": "Status Description"
+		},
+		"employee": {
+			"firstName": "First Name",
+			"lastName": "Last Name",
+			"middleName": "Middle Name",
+			"empCode": "Emp.Code",
+			"bankAccount": "Bank Account",
+			"bankCardNo": "Back Card.No",
+			"nationalId": "National Id",
+			"passportNo": "Passport.No",
+			"taxNumber": "Tax.No",
+			"dob": "Date of Birth",
+			"approvalGroup": "Approval Group",
+			"role": "Job Role",
+			"employmentType": "Employment Type",
+			"department": "Department",
+			"gender": "Gender",
+			"email": "Email",
+			"mobile": "Mobile",
+			"doj": "Date Joined",
+			"nationality": "Nationality",
+			"status": "Status",
+			"currency": "Currency"
+		},
+		"project": {
+			"projectName": "Name",
+			"projectDescription": "Description",
+			"costCenter": "Cost Center",
+			"projectManager": "Project Manager"
+		},
+		"subProject": {
+			"subProjectName": "Name",
+			"subProjectDescription": "Description",
+			"project": "Project"
+		},
+		"assignRole": {
+			"user": "User",
+			"role": "Role"
+		},
+		"assignProject": {
+			"employee": "Employee",
+			"project": "Project"
+		}
+	},
+	"tableHeader": {
+		"currency": {
+			"currencyCode": "Code",
+			"currencyName": "Name",
+			"country": "Country"
+		},
+		"status": {
+			"status": "Status"
+		},
+		"disburse": {
+			"id": "Id",
+			"employee": "Employee",
+			"department": "Department",
+			"project": "Project",
+			"claimAmount": "Claim Amount",
+			"status": "Settlement Status"
+		},
+		"travel": {
+			"startDate": "Start Date",
+			"endDate": "End Date",
+			"travelPurpose": "Travel Purpose",
+			"department": "Department",
+			"project": "Project",
+			"requestDate": "Request Date",
+			"id": "Id",
+			"status": "Status",
+			"claimAmount": "Claim Amount"
+		},
+		"userRole": {
+			"roleName": "Role Name"
+		},
+		"user": {
+			"userName": "User Name",
+			"email": "Email"
+		},
+		"task": {
+			"subProject": "Sub Project",
+			"taskName": "Name",
+			"taskDescription": "Description",
+			"status": "Status"
+		},
+		"cashAdvance": {
+			"advanceAmount": "Amount",
+			"advanceDescription": "Description",
+			"department": "Department",
+			"project": "Project",
+			"requestDate": "Request Date",
+			"id": "Id",
+			"status": "Status",
+			"claimAmount": "Claim Amount"
+		},
+		"inbox": {
+			"employee": "Employee",
+			"department": "Department",
+			"project": "Project",
+			"requestDate": "Request Date",
+			"id": "Id",
+			"status": "Status",
+			"comments": "Comments",
+			"claimAmount": "Claim Amount",
+			"costCenter": "Cost Center",
+			"invoiceDate": "Invoice Date",
+			"expenseType": "Expense Type"
+		},
+		"costCenter": {
+			"costCenterCode": "Cost Center Code",
+			"costCenterDescription": "Cost Center Name",
+			"status": "Status"
+		},
+		"department": {
+			"departmentCode": "Department Code",
+			"departmentName": "Department Name",
+			"costCenter": "Cost Center",
+			"status": "Status"
+		},
+		"role": {
+			"roleCode": "Role Code",
+			"roleName": "Role Name",
+			"maxAmount": "Max.Amount"
+		},
+		"employmentType": {
+			"employmentTypeName": "Name",
+			"employmentTypeDescription": "Description"
+		},
+		"expenseType": {
+			"expenseTypeName": "Name",
+			"expenseTypeDescription": "Description",
+			"status": "Status"
+		},
+		"approvalLevel": {
+			"level": "Level",
+			"levelDescription": "Description"
+		},
+		"approvalGroup": {
+			"groupCode": "Code",
+			"groupDescription": "Description"
+		},
+		"approvalRoleMap": {
+			"group": "Group",
+			"role": "Role",
+			"level": "Level",
+			"employeeName": "Employee Name"
+		},
+		"approvalStatus": {
+			"status": "Status",
+			"statusDescription": "Status Description"
+		},
+
+		"employee": {
+			"name": "Name",
+			"email": "Email",
+			"mobile": "Mobile",
+			"doj": "Date Joined",
+			"nationality": "Nationality",
+			"jobRole": "Job Role"
+		},
+		"project": {
+			"projectName": "Name",
+			"projectDescription": "Description",
+			"projectManager": "Project Manager",
+			"status": "Status"
+		},
+		"subProject": {
+			"subProjectName": "Name",
+			"subProjectDescription": "Description",
+			"project": "Project",
+			"status": "Status"
+		},
+		"assignRole": {
+			"user": "User",
+			"role": "Role"
+		},
+		"expenseReimburse": {
+			"create": {
+				"invoiceNo": "Invoice No",
+				"invoiceDate": "Invoice Date",
+				"claimAmount": "Claim Amount",
+				"expenseType": "Expense Type"
+			},
+			"list": {
+				"expenseName": "Expense Name",
+				"claimAmount": "Claim Amount",
+				"department": "Department",
+				"project": "Project",
+				"requestDate": "Request Date",
+				"id": "Id",
+				"status": "Status"
+			}
+		},
+		"assignProject": {
+			"employee": "Employee",
+			"project": "Project"
+		}
+	},
+	"button": {
+		"next": "Next",
+		"create": "Create",
+		"update": "Update",
+		"back": "Back",
+		"assign": "Assign",
+		"delete": "Delete",
+		"cancel": "Cancel",
+		"approve": "Approve",
+		"remove": "Remove",
+		"reject": "Reject",
+		"login": "Log In",
+		"addNew": "Add New",
+		"add": "Add",
+		"submit": "Submit",
+		"yes": "Yes",
+		"no": "No",
+		"download": "Download",
+		"downloadReports": "Download Report",
+		"updateExpenseMethod": "Update Expense Method",
+		"logout": "Logout",
+		"changePassword": "Change Password",
+		"requestReset": "Request Reset Link",
+		"automate": "Automate",
+		"settle": "Settle"
+	},
+	"validation": {
+		"required": "Field Required!",
+		"invalidEmail": "Invalid Email!",
+		"onlyAlphabets": "Only Alphabets are allowed!",
+		"accountNo": "Account.No should have atleast 10 digits!",
+		"onlyNumbers": "Only Numbers are allowed!",
+		"cardNo": "Card No should have 16 digits!",
+		"taxNo": "Invalid Tax Number!",
+		"invalidMobileNo": "Invalid Mobile Number!",
+		"docAlert": "(Please check whether all the claim are attached with at least one Document)"
+	},
+	"notification": {
+		"notification": "Notification",
+		"addRequest": "Data Added Successfully!",
+		"updateRequest": "Data Updated Successfully!",
+		"deleteRequest": "Data Deleted Successfully!",
+		"noRequestSelected": "No Request Selected!",
+		"noRecordsToDownload": "No Records to Download!"
+	},
+	"alert": {
+		"approve": "Are you sure you want to Approve?",
+		"reject": "Are you sure you want to Reject?",
+		"delete": "Are you sure you want to delete?",
+		"claimAlert":"*You can't revert your expenses once you are done with the submission"
+	},
+	"components": {
+		"requestDetails": {
+			"employee": "Employee",
+			"department": "Department",
+			"requestDate": "Requested Date",
+			"travelStartDate": "Start Date",
+			"travelEndDate": "End Date",
+			"travelPurpose": "Travel Purpose",
+			"claimAmount": "Claim Amount",
+			"expenseTitle": "Expense Title",
+			"currentStatus": "Current Status",
+			"id": "Id",
+			"cashAdvanceDetails": "Cash Advance Details",
+			"advanceAmount": "Advance Amount",
+			"subProject": "Sub Project",
+			"workTask": "Work Task",
+			"description": "Description",
+			"expenseRequestTitle": "Expense Request Details",
+			"project": "Project",
+			"travelRequestDetails": "Travel Request Details",
+			"invoiceNo": "Invoice No",
+			"invoiceDate": "Invoice Date",
+			"location": "Location",
+			"taxAmount": "Tax Amount",
+			"vendor": "Vendor",
+			"expense": "Expense",
+			"documents": "Documents",
+			"comments": "Comments",
+			"currency": "Currency",
+			"recordDate": "Record Date",
+			"accountNo": "Account.No",
+			"cardNo": "Card.No",
+			"expenseId": "Expense Id",
+			"pettyCashId": "Petty Cash Id"
+		},
+		"filters": {
+			"reports": {
+				"department": "Department",
+				"project": "Project",
+				"subProject": "Sub Project",
+				"task": "Task",
+				"costCenter": "Cost Center",
+				"status": "Status",
+				"from": "Request Date From",
+				"to": "Request Date To",
+				"amount": "Amount From - To",
+				"travelFrom": "Travel Date Start",
+				"travelTo": "Travel Date End ",
+				"travelPurpose": "Travel Purpose",
+				"employees": "Employees",
+				"employeeName": "Employee Name",
+				"employeeCode": "Employee Code",
+				"bankAccount": "Bank Account",
+				"nationalId": "National Id",
+				"passportNo": "Passport. No",
+				"taxNo": "Tax. No",
+				"nationality": "Nationality",
+				"gender": "Gender",
+				"email": "Email",
+				"mobileNo": "Mobile. No",
+				"employmentType": "Employment Type",
+				"jobRole": "Job Role",
+				"approvalGroup": "Approval Group",
+				"roleId": "Role Id",
+				"expenseType": "Expense Type",
+				"all": "All",
+				"settled": "Settled",
+				"notSettled": "Unsettled",
+				"male": "Male",
+				"female": "Female",
+				"others": "Others",
+				"myReports": "My Reports"
+			}
+		}
+	},
+	"tooltip": {
+		"automate": "Need UiPath Tool to Automate"
+	}
+}

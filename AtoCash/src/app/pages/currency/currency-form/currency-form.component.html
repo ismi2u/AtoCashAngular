@@ -1,0 +1,108 @@
+<div class="form-layout">
+  <nz-card
+    class="form-layout__card"
+    [nzBordered]="false"
+    [nzTitle]="'heading.currency' | translate"
+    [nzExtra]="action"
+  >
+    <form nz-form [formGroup]="form" (ngSubmit)="submitForm()">
+      <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzRequired nzFor="status">{{
+          "form.currency.currencyCode" | translate
+        }}</nz-form-label>
+        <nz-form-control
+          [nzSpan]="15"
+          [nzErrorTip]="'validation.required' | translate"
+        >
+          <nz-input-group>
+            <input
+              formControlName="currencyCode"
+              type="text"
+              nz-input
+              [placeholder]="'form.currency.currencyCode' | translate"
+              appCapitalize
+              id="status"
+            />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzRequired nzFor="status">{{
+          "form.currency.currencyName" | translate
+        }}</nz-form-label>
+        <nz-form-control
+          [nzSpan]="15"
+          [nzErrorTip]="'validation.required' | translate"
+        >
+          <nz-input-group>
+            <input
+              formControlName="currencyName"
+              type="text"
+              nz-input
+              [placeholder]="'form.currency.currencyName' | translate"
+              appCapitalize
+              id="status"
+            />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzRequired nzFor="nationality">{{
+          "form.currency.country" | translate
+        }}</nz-form-label>
+
+        <nz-form-control [nzSpan]="15" [nzErrorTip]="'validation.required' |translate ">
+          <nz-select
+            nzShowSearch
+            nzAllowClear
+            id="nationality"
+            formControlName="country"
+            [nzPlaceHolder]="'form.currency.country' | translate"
+          >
+            <nz-option
+              *ngFor="let option of nationalities"
+              [nzValue]="option.country"
+              [nzLabel]="option.country"
+            ></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzRequired nzFor="costCenter">{{
+          'form.status.status' | translate
+        }}</nz-form-label>
+
+        <nz-form-control [nzSpan]="15"  [nzErrorTip]="'validation.required' | translate">
+          <nz-select
+          nzShowSearch nzAllowClear
+            id="costCenter"
+            formControlName="statusTypeId"
+            [nzPlaceHolder]="'form.status.status' | translate"
+          >
+            <nz-option
+              *ngFor="let option of status"
+              [nzValue]="option.id"
+              [nzLabel]="option.status"
+            ></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-control class="action-control">
+          <button nz-button nzType="primary" [disabled]="!form.valid">
+            {{ getButtonLabel() }}
+          </button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+    <ng-template #action>
+      <button nz-button routerLink="/currency/list" nzType="primary">
+        <i nz-icon nzType="arrow-left"></i>
+        {{ "button.back" | translate }}
+      </button>
+    </ng-template></nz-card
+  >
+</div>

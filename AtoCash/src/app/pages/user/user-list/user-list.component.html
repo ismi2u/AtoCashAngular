@@ -1,0 +1,15 @@
+<nz-card [nzBordered]="false" [nzTitle]="'heading.user' | translate"  [nzExtra]="action">
+  <app-table
+    [tableHeaders]="usersHeader"
+    [tableData]="users"
+    (onDelete) = "deleteRecord($event)"
+    (onEdit) = "editRecord($event)"
+    [formName] = "'user'"
+  ></app-table>
+</nz-card>
+
+<ng-template #action>
+  <button nz-button routerLink="/user/action/add" nzType="primary">
+    {{ 'button.create' | translate }}
+  </button>
+</ng-template>

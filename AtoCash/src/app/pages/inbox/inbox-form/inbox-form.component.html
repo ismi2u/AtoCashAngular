@@ -1,0 +1,50 @@
+<div class="form-layout">
+  <nz-card class="form-layout__card" [nzBordered]="false" [nzTitle]="'heading.inbox' | translate" [nzExtra]="action">
+    <form
+      nz-form
+      [formGroup]="form"
+      (ngSubmit)="submitForm()"
+    >
+      <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzRequired nzFor="projectName">{{'form.project.projectName' | translate}}</nz-form-label>
+
+        <nz-form-control  [nzErrorTip]="'validation.required' | translate">
+          <nz-input-group>
+            <input
+              formControlName="level"
+              type="text"
+              nz-input
+              placeholder="Approval Level"
+              appCapitalize
+            />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control  [nzErrorTip]="'validation.required' | translate">
+          <nz-input-group>
+            <input
+              formControlName="levelDesc"
+              nz-input
+              type="text"
+              placeholder="Approval Level Desc"
+              appCapitalize
+            />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control>
+          <button nz-button nzType="primary" [disabled]="!form.valid">
+            {{ formType }}
+          </button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+    <ng-template #action>
+      <button nz-button routerLink="/cash-advance" nzType="primary">
+        <i nz-icon nzType="arrow-left"></i>
+        Back
+      </button>
+    </ng-template></nz-card
+  >

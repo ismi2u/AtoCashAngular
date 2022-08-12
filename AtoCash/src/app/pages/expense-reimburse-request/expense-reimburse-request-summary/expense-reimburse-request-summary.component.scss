@@ -1,0 +1,16 @@
+.enable-project {
+    display: flex;
+    justify-content: flex-end;
+    .label {
+        margin: 0 10px;
+    }
+}
+
+.disclaimer {
+    color: red;
+    font-weight: bold;
+}
+
+.action {
+    margin-left: auto;
+}

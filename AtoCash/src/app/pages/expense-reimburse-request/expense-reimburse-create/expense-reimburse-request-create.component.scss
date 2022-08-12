@@ -1,0 +1,45 @@
+.actions {
+  display: flex;
+
+  button {
+    margin: 0 10px;
+  }
+}
+
+.action {
+  display: flex;
+  align-items: center;
+}
+
+::ng-deep .ant-modal {
+  width: 650px !important;
+  top: 30px
+}
+
+::ng-deep .ant-modal-confirm {
+  width: 416px !important;
+}
+
+
+.info {
+  display: flex;
+
+  .expense-type,
+  .amount {
+    margin: 0 10px;
+  }
+
+}
+
+
+.warning {
+  color: #ff4d4f;
+  font-size: 12px;
+  margin: 4px;
+}
+
+.action-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

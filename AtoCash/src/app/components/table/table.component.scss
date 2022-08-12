@@ -1,0 +1,39 @@
+.action-data {
+ 
+  &__btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+}
+
+tr {
+  cursor: pointer;
+}
+
+.table-ops {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 16px;
+
+  p{
+    margin: 0 8px;
+  }
+
+  .request-type {
+    max-width: 200px;
+  }
+
+  .search-bar {
+    max-width: 300px;
+    margin-left: auto;
+  }
+}
+
+
+.disburse-date  {
+   width: 150px;
+   margin: 0 10px;
+} 

@@ -1,0 +1,76 @@
+<div class="form-layout">
+  <nz-card class="form-layout__card" [nzBordered]="false" [nzTitle]="'heading.expenseType' | translate" [nzExtra]="action">
+  <form
+    nz-form 
+  
+    [formGroup]="form"
+    (ngSubmit)="submitForm()"
+  >
+    <nz-form-item>
+      <nz-form-label [nzSpan]="7" nzRequired nzFor="expenseTypeName">{{'form.expenseType.expenseTypeName' | translate}}</nz-form-label>
+
+      <nz-form-control [nzSpan]="15"  [nzErrorTip]="'validation.required' | translate">
+
+          <input
+            formControlName="expenseTypeName"
+            type="text"
+            nz-input
+            [placeholder]="'form.expenseType.expenseTypeName' | translate"
+            appCapitalize
+            id="expenseTypeName"
+          />
+
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="7" nzRequired nzFor="expenseTypeDescription">{{'form.expenseType.expenseTypeDescription' | translate}}</nz-form-label>
+
+      <nz-form-control [nzSpan]="15"  [nzErrorTip]="'validation.required' | translate">
+      
+          <input
+            formControlName="expenseTypeDesc"
+            nz-input
+            type="text"
+            [placeholder]="'form.expenseType.expenseTypeDescription' | translate"
+            appCapitalize
+            id="expenseTypeDescription"
+          />
+       
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="7" nzRequired nzFor="costCenter">{{
+        'form.status.status' | translate
+      }}</nz-form-label>
+
+      <nz-form-control [nzSpan]="15"  [nzErrorTip]="'validation.required' | translate">
+        <nz-select
+        nzShowSearch nzAllowClear
+          id="costCenter"
+          formControlName="statusTypeId"
+          [nzPlaceHolder]="'form.status.status' | translate"
+        >
+          <nz-option
+            *ngFor="let option of status"
+            [nzValue]="option.id"
+            [nzLabel]="option.status"
+          ></nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-control class="action-control">
+        <button nz-button nzType="primary" [disabled]="!form.valid">
+          {{ getButtonLabel() }}
+        </button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+  <ng-template #action>
+    <button nz-button routerLink="/expense-type" nzType="primary">
+      <i nz-icon nzType="arrow-left"></i>
+      {{ 'button.back' | translate }}
+    </button>
+  </ng-template></nz-card
+>
+</div>

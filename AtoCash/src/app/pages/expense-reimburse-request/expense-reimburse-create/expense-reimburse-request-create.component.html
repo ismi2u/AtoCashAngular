@@ -1,0 +1,78 @@
+<nz-card
+	[nzBordered]="false"
+	[nzTitle]="
+		primaryExpenseData
+			? primaryExpenseData.expenseReportTitle
+			: ('heading.expenseReimburse' | translate)
+	"
+	[nzExtra]="action"
+>
+	<app-table
+		[tableHeaders]="travelRequestHeaders"
+		[tableData]="expenses"
+		(onDelete)="deleteRecord($event)"
+		(onEdit)="editRecord($event)"
+		[formName]="'expenseReimburseData'"
+		[pageSize]="5"
+		(onRowSelect)="getRowData($event)"
+		(onRowAdd)="showModal(null)"
+		[enableDuplicate]="mode !== 'view'"
+		(onDuplicate)="duplicateRow($event)"
+		(onMethodUpdate)="showPrimaryModal('exist')"
+		[enableDelete]="mode !== 'view'"
+		[enableEdit]="mode !== 'view'"
+		[mode]="mode"
+	></app-table>
+</nz-card>
+
+<ng-template #action>
+	<div class="action">
+		<div class="action-info">
+			<div class="info" *ngIf="primaryExpenseData">
+				<p class="expense-type">
+					<b>{{ 'heading.chargeTo' | translate }}</b>
+					{{
+						primaryExpenseData.projectId
+							? ('components.requestDetails.project' | translate)
+							: ('components.requestDetails.department' | translate)
+					}}
+				</p>
+				<p class="amount">
+					<b>{{ 'heading.totalAmount' | translate }}</b> :
+					{{ getTotalAmount() }}
+				</p>
+			</div>
+			<p class="warning" *ngIf="!hasAllDocuments() && mode !== 'view'">
+				{{ 'validation.docAlert' | translate }}
+			</p>
+		</div>
+
+		<div class="actions">
+			<button
+				nz-button
+				[routerLink]="mode === 'view' ? '/inbox/' : '/expense-reimburse/'"
+				nzType="default"
+			>
+				<i nz-icon nzType="arrow-left"></i>
+				{{ 'button.back' | translate }}
+			</button>
+			<button
+				*ngIf="!disableActions"
+				nz-button
+				[disabled]="!hasAllDocuments()"
+				nzType="primary"
+				(click)="showSummaryModal()"
+			>
+				{{ 'button.submit' | translate }}
+			</button>
+		</div>
+	</div>
+</ng-template>
+<app-request-details
+	[disableDocumentsView]="false"
+	[documents]="claimDocuments"
+	[requestType]="'expense'"
+	[disableStatusFlow]="true"
+	*ngIf="requestDetails"
+	[requestDetails]="requestDetails"
+></app-request-details>

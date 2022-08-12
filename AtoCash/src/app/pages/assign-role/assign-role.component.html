@@ -1,0 +1,60 @@
+<div class="form-layout">
+  <nz-card
+    class="form-layout__card"
+    [nzBordered]="false"
+    [nzTitle]="'heading.assignRole' | translate"
+  >
+    <form nz-form [formGroup]="form" (ngSubmit)="submitForm()">
+      <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzRequired nzFor="user">{{
+          "form.assignRole.user" | translate
+        }}</nz-form-label>
+        <nz-form-control [nzSpan]="15"  [nzErrorTip]="'validation.required' | translate">
+          <nz-select
+          nzShowSearch nzAllowClear
+            id="user"
+            formControlName="userId"
+            [nzPlaceHolder]="'form.assignRole.user' | translate"
+          >
+            <nz-option
+              *ngFor="let option of users"
+              [nzValue]="option.id"
+              [nzLabel]="option.userName"
+            ></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzRequired nzFor="role">{{
+          "form.assignRole.role" | translate
+        }}</nz-form-label>
+        <nz-form-control [nzSpan]="15"  [nzErrorTip]="'validation.required' | translate">
+          <nz-input-group>
+            <nz-select
+            nzShowSearch nzAllowClear
+              nzMode="tags"
+              formControlName="roleIds"
+              type="text"
+              nz-input
+              [nzPlaceHolder]="'form.assignRole.role' | translate"
+            >
+              <nz-option
+                *ngFor="let option of userRoles"
+                [nzLabel]="option.name"
+                [nzValue]="option.id"
+              ></nz-option>
+            </nz-select>
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-control class="action-control">
+          <button nz-button nzType="primary" [disabled]="!form.valid">
+            {{ "button.assign" | translate }}
+          </button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </nz-card>
+</div>

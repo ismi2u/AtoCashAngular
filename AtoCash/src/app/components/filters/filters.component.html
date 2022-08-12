@@ -1,0 +1,32 @@
+<form nz-form [nzLayout]="'vertical'" class="filters-form" [formGroup]="form">
+	<nz-form-item *ngFor="let filter of filters" class="filters-form__item">
+		<nz-form-label nzFor="costCenter" *ngIf="(getOnlyIfCondition(filter) || filter.type==='dateRange' || filter.type==='range' || filter.type==='text')  && (!filter.role || checkRole(filter.role)) ">{{
+			filter.label | translate
+		}}</nz-form-label>
+		<nz-form-control *ngIf="filter.type == 'dateRange' && (!filter.role || checkRole(filter.role))" class="filters-form__control">
+			<nz-date-picker [nzFormat]="'dd/MM/YYYY'" (nzOnOpenChange)="onDateChange($event,filter)" [formControlName]="filter.name"></nz-date-picker>
+		</nz-form-control>
+		<nz-form-control *ngIf="filter.type == 'range' && (!filter.role || checkRole(filter.role))" class="filters-form__control">
+			<nz-slider [nzMin]="10" [nzMax]="1000000" (nzOnAfterChange)="onSliderChange($event,filter)" nzRange [formControlName]="filter.name" ></nz-slider>
+		</nz-form-control>
+		<nz-form-control *ngIf="filter.type == 'text' && (!filter.role || checkRole(filter.role))" class="filters-form__control">
+			<input nz-input [placeholder]="'heading.search' | translate" (ngModelChange)="onTextChange($event,filter)"  [formControlName]="filter.name"  />
+		</nz-form-control>
+		<nz-form-control *ngIf="getOnlyIfCondition(filter) && (!filter.role || checkRole(filter.role))" class="filters-form__control">
+			<nz-select
+				nzShowSearch
+				nzAllowClear
+				id="costCenter"
+				[formControlName]="filter.name"
+				[nzPlaceHolder]="filter.label | translate"
+				(ngModelChange)="onSelectChange($event,filter.name)"
+			>
+				<nz-option
+					*ngFor="let option of filter.options"
+					[nzValue]="option.id"
+					[nzLabel]="option.name | translate"
+				></nz-option>
+			</nz-select>
+		</nz-form-control>
+	</nz-form-item>
+</form>

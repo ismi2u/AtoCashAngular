@@ -1,0 +1,69 @@
+<div class="form-layout">
+  <nz-card class="form-layout__card" [nzBordered]="false" [nzTitle]="'heading.task' | translate" [nzExtra]="action">
+    <form
+      nz-form
+      [formGroup]="form"
+      (ngSubmit)="submitForm()"
+    >
+      <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzRequired nzFor="taskName">{{'form.task.taskName' | translate}}</nz-form-label>
+
+        <nz-form-control [nzSpan]="15"   [nzErrorTip]="'validation.required' | translate">
+
+            <input
+              formControlName="taskName"
+              type="text"
+              nz-input
+              [placeholder]="'form.task.taskName' | translate"
+              appCapitalize
+              id="taskName"
+            />
+
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzRequired nzFor="taskDescription">{{'form.task.taskDescription' | translate}}</nz-form-label>
+        <nz-form-control [nzSpan]="15"  [nzErrorTip]="'validation.required' | translate">
+  
+            <input
+              formControlName="taskDesc"
+              nz-input
+              type="text"
+              [placeholder]="'form.task.taskDescription' | translate"
+              appCapitalize
+              id="taskDescription"
+            />
+
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzRequired nzFor="subProject">{{'form.task.subProject' | translate}}</nz-form-label>
+        <nz-form-control [nzSpan]="15"  [nzErrorTip]="'validation.required' | translate">
+            <nz-select
+            nzShowSearch nzAllowClear
+            id="subProject"
+            formControlName="subProjectId"
+            [nzPlaceHolder]="'form.task.subProject' | translate"
+          >
+            <nz-option *ngFor="let option of subProjects" [nzValue]="option.id" [nzLabel]="option.subProjectName"></nz-option>
+          </nz-select>
+      
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control class="action-control">
+          <button nz-button nzType="primary" [disabled]="!form.valid">
+            {{ getButtonLabel() }}
+          </button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+    <ng-template #action>
+      <button nz-button routerLink="/task" nzType="primary">
+        <i nz-icon nzType="arrow-left"></i>
+        {{ 'button.back' | translate }}
+      </button>
+    </ng-template></nz-card
+  >
+</div>

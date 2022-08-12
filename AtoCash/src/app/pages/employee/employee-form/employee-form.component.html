@@ -1,0 +1,462 @@
+<div class="form-layout">
+  <nz-card
+    class="form-layout__card"
+    [nzBordered]="false"
+    [nzTitle]="'heading.employee' | translate"
+    [nzExtra]="action"
+  >
+    <form nz-form [formGroup]="form" (ngSubmit)="submitForm()">
+      <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzRequired nzFor="firstName">{{
+          "form.employee.firstName" | translate
+        }}</nz-form-label>
+
+        <nz-form-control [nzSpan]="15" [nzErrorTip]="firstNameErrorTpl">
+          <input
+            formControlName="firstName"
+            type="text"
+            nz-input
+            [placeholder]="'form.employee.firstName' | translate"
+            appCapitalize
+            id="firstName"
+          />
+          <ng-template #firstNameErrorTpl let-control>
+            <ng-container *ngIf="control.hasError('required')"
+              >{{'validation.required' |translate }}</ng-container
+            >
+            <ng-container *ngIf="control.hasError('pattern')"
+              >{{'validation.onlyAlphabets' |translate }}</ng-container
+            >
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzFor="middleName">{{
+          "form.employee.middleName" | translate
+        }}</nz-form-label>
+
+        <nz-form-control [nzSpan]="15" [nzErrorTip]="middleNameErrorTpl">
+          <input
+            formControlName="middleName"
+            type="text"
+            nz-input
+            [placeholder]="'form.employee.middleName' | translate"
+            appCapitalize
+            id="middleName"
+          />
+          <ng-template #middleNameErrorTpl let-control>
+            <ng-container *ngIf="control.hasError('pattern')"
+              >{{'validation.onlyAlphabets' |translate }}</ng-container
+            >
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzRequired nzFor="lastName">{{
+          "form.employee.lastName" | translate
+        }}</nz-form-label>
+
+        <nz-form-control [nzSpan]="15" [nzErrorTip]="lastNameErrorTpl">
+          <input
+            formControlName="lastName"
+            type="text"
+            nz-input
+            [placeholder]="'form.employee.lastName' | translate"
+            appCapitalize
+            id="lastName"
+          />
+          <ng-template #lastNameErrorTpl let-control>
+            <ng-container *ngIf="control.hasError('required')"
+              >{{'validation.required' |translate }}</ng-container
+            >
+            <ng-container *ngIf="control.hasError('pattern')"
+              >{{'validation.onlyAlphabets' |translate }}</ng-container
+            >
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzRequired nzFor="empCode">{{
+          "form.employee.empCode" | translate
+        }}</nz-form-label>
+
+        <nz-form-control [nzSpan]="15" [nzErrorTip]="'validation.required' |translate">
+          <input
+            formControlName="empCode"
+            type="text"
+            nz-input
+            [placeholder]="'form.employee.empCode' | translate"
+            appCapitalize
+            id="empCode"
+          />
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzRequired nzFor="bankAccount">{{
+          "form.employee.bankAccount" | translate
+        }}</nz-form-label>
+
+        <nz-form-control [nzSpan]="15" [nzErrorTip]="bankErrorTpl">
+          <input
+            id="bankAccount"
+            formControlName="bankAccount"
+            type="text"
+            nz-input
+            [placeholder]="'form.employee.bankAccount' | translate"
+          />
+
+          <ng-template #bankErrorTpl let-control>
+            <ng-container *ngIf="control.hasError('required')"
+              >{{'validation.required' |translate }}</ng-container
+            >
+            <ng-container *ngIf="control.hasError('minlength')"
+              >{{'validation.accountNo' |translate }}</ng-container
+            >
+            <ng-container *ngIf="control.hasError('pattern')"
+              >{{'validation.onlyNumbers' |translate }}</ng-container
+            >
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzRequired nzFor="bankCardNo">{{
+          "form.employee.bankCardNo" | translate
+        }}</nz-form-label>
+
+        <nz-form-control [nzSpan]="15" [nzErrorTip]="cardErrorTpl">
+          <input
+            id="bankCardNo"
+            formControlName="bankCardNo"
+            type="text"
+            nz-input
+            [placeholder]="'form.employee.bankCardNo' | translate"
+          />
+          <ng-template #cardErrorTpl let-control>
+            <ng-container *ngIf="control.hasError('required')"
+              >{{'validation.required' |translate }}</ng-container
+            >
+            <ng-container
+              *ngIf="
+                control.hasError('minlength') || control.hasError('maxlength')
+              "
+              >{{'validation.cardNo' |translate }}</ng-container
+            >
+            <ng-container *ngIf="control.hasError('pattern')"
+              >{{'validation.onlyNumbers' |translate }}</ng-container
+            >
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzRequired nzFor="nationalId">{{
+          "form.employee.nationalId" | translate
+        }}</nz-form-label>
+
+        <nz-form-control [nzSpan]="15">
+          <input
+            id="nationalId"
+            formControlName="nationalID"
+            type="text"
+            nz-input
+            [placeholder]="'form.employee.nationalId' | translate"
+          />
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzFor="passportNo">{{
+          "form.employee.passportNo" | translate
+        }}</nz-form-label>
+
+        <nz-form-control [nzSpan]="15">
+          <input
+            id="passportNo"
+            formControlName="passportNo"
+            type="text"
+            nz-input
+            [placeholder]="'form.employee.passportNo' | translate"
+          />
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzFor="taxNumber">{{
+          "form.employee.taxNumber" | translate
+        }}</nz-form-label>
+
+        <nz-form-control [nzSpan]="15" [nzErrorTip]="taxErrorTpl">
+          <input
+            formControlName="taxNumber"
+            type="text"
+            nz-input
+            id="taxNumber"
+            [placeholder]="'form.employee.taxNumber' | translate"
+          />
+          <ng-template #taxErrorTpl let-control>
+            <ng-container *ngIf="control.hasError('pattern')"
+              >{{'validation.taxNo' |translate }}</ng-container
+            >
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzRequired nzFor="email">{{
+          "form.employee.email" | translate
+        }}</nz-form-label>
+
+        <nz-form-control [nzSpan]="15" [nzErrorTip]="emailErrorTpl">
+          <input
+            id="email"
+            formControlName="email"
+            type="email"
+            nz-input
+            [placeholder]="'form.employee.email' | translate"
+          />
+          <ng-template #emailErrorTpl let-control>
+            <ng-container *ngIf="control.hasError('required')"
+              >{{'validation.required' |translate }}</ng-container
+            >
+            <ng-container *ngIf="control.hasError('pattern')"
+              >{{'validation.invalidEmail' |translate }}</ng-container
+            >
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzRequired nzFor="mobile">{{
+          "form.employee.mobile" | translate
+        }}</nz-form-label>
+
+        <nz-form-control [nzSpan]="15" [nzErrorTip]="mobileErrorTpl">
+          <input
+            id="mobile"
+            formControlName="mobileNumber"
+            type="tel"
+            nz-input
+            [placeholder]="'form.employee.mobile' | translate"
+          />
+          <ng-template #mobileErrorTpl let-control>
+            <ng-container *ngIf="control.hasError('required')"
+              >{{'validation.required' |translate }}</ng-container
+            >
+            <ng-container *ngIf="control.hasError('pattern')"
+              >{{'validation.invalidMobileNo' |translate }}</ng-container
+            >
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzRequired nzFor="nationality">{{
+          "form.employee.nationality" | translate
+        }}</nz-form-label>
+
+        <nz-form-control [nzSpan]="15" [nzErrorTip]="'validation.required' |translate ">
+          <nz-select
+            nzShowSearch
+            nzAllowClear
+            id="nationality"
+            formControlName="nationality"
+            [nzPlaceHolder]="'form.employee.nationality' | translate"
+          >
+            <nz-option
+              *ngFor="let option of nationalities"
+              [nzValue]="option"
+              [nzLabel]="option"
+            ></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+
+     
+      <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzRequired nzFor="dob">{{
+          "form.employee.dob" | translate
+        }}</nz-form-label>
+
+        <nz-form-control [nzSpan]="15" [nzErrorTip]="'validation.required' |translate ">
+          <nz-date-picker
+            id="dob"
+            formControlName="dob"
+            [nzPlaceHolder]="'form.employee.dob' | translate"
+          ></nz-date-picker>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzRequired nzFor="doj">{{
+          "form.employee.doj" | translate
+        }}</nz-form-label>
+
+        <nz-form-control [nzSpan]="15" [nzErrorTip]="'validation.required' |translate ">
+          <nz-date-picker
+           
+            id="doj"
+            formControlName="doj"
+            [nzPlaceHolder]="'form.employee.doj' | translate"
+          ></nz-date-picker>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzRequired nzFor="gender">{{
+          "form.employee.gender" | translate
+        }}</nz-form-label>
+
+        <nz-form-control [nzSpan]="15" [nzErrorTip]="'validation.required' |translate">
+          <nz-select
+            nzShowSearch
+            nzAllowClear
+            id="gender"
+            formControlName="gender"
+            [nzPlaceHolder]="'form.employee.gender' | translate"
+          >
+            <nz-option nzValue="male" [nzLabel]="'components.filters.reports.male' | translate"></nz-option>
+            <nz-option nzValue="female" [nzLabel]="'components.filters.reports.female' | translate"></nz-option>
+            <nz-option nzValue="unknown" [nzLabel]="'components.filters.reports.others' | translate"></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzRequired nzFor="approvalGroup">{{
+          "form.employee.approvalGroup" | translate
+        }}</nz-form-label>
+
+        <nz-form-control [nzSpan]="15" [nzErrorTip]="'validation.required' |translate">
+          <nz-select
+            nzShowSearch
+            nzAllowClear
+            id="approvalGroup"
+            formControlName="approvalGroupId"
+            [nzPlaceHolder]="'form.employee.approvalGroup' | translate"
+          >
+            <nz-option
+              *ngFor="let option of groups"
+              [nzValue]="option.id"
+              [nzLabel]="option.approvalGroupCode"
+            ></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzRequired nzFor="role">{{
+          "form.employee.role" | translate
+        }}</nz-form-label>
+
+        <nz-form-control [nzSpan]="15" [nzErrorTip]="'validation.required' |translate ">
+          <nz-select
+            nzShowSearch
+            nzAllowClear
+            id="role"
+            formControlName="roleId"
+            [nzPlaceHolder]="'form.employee.role' | translate"
+          >
+            <nz-option
+              *ngFor="let option of roles"
+              [nzValue]="option.id"
+              [nzLabel]="option.roleCode"
+            ></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzRequired nzFor="employmentType">{{
+          "form.employee.employmentType" | translate
+        }}</nz-form-label>
+
+        <nz-form-control [nzSpan]="15" [nzErrorTip]="'validation.required' |translate">
+          <nz-select
+            nzShowSearch
+            nzAllowClear
+            id="employmentType"
+            formControlName="employmentTypeId"
+            [nzPlaceHolder]="'form.employee.employmentType' | translate"
+          >
+            <nz-option
+              *ngFor="let option of employeeTypes"
+              [nzValue]="option.id"
+              [nzLabel]="option.empJobTypeCode"
+            ></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzRequired nzFor="department">{{
+          "form.employee.department" | translate
+        }}</nz-form-label>
+
+        <nz-form-control [nzSpan]="15" [nzErrorTip]="'validation.required' |translate ">
+          <nz-select
+            nzShowSearch
+            nzAllowClear
+            id="department"
+            formControlName="departmentId"
+            [nzPlaceHolder]="'form.employee.department' | translate"
+          >
+            <nz-option
+              *ngFor="let option of departments"
+              [nzValue]="option.id"
+              [nzLabel]="option.deptDesc"
+            ></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzRequired nzFor="status">{{
+          "form.employee.currency" | translate
+        }}</nz-form-label>
+
+        <nz-form-control [nzSpan]="15" [nzErrorTip]="'validation.required' |translate ">
+          <nz-select
+            nzShowSearch
+            nzAllowClear
+            id="status"
+            formControlName="currencyTypeId"
+            [nzPlaceHolder]="'form.employee.currency' | translate"
+          >
+            <nz-option *ngFor="let option of currencies" [nzValue]="option.id" [nzLabel]="option.currencyCode"></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzRequired nzFor="status">{{
+          "form.employee.status" | translate
+        }}</nz-form-label>
+
+        <nz-form-control [nzSpan]="15" [nzErrorTip]="'validation.required' |translate ">
+          <nz-select
+            nzShowSearch
+            nzAllowClear
+            id="status"
+            formControlName="statusTypeId"
+            [nzPlaceHolder]="'form.employee.status' | translate"
+          >
+            <nz-option *ngFor="let option of status" [nzValue]="option.id" [nzLabel]="option.status"></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control class="action-control">
+          <button nz-button nzType="primary" [disabled]="!form.valid">
+            {{ getButtonLabel() }}
+          </button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+    <ng-template #action>
+      <button nz-button routerLink="/employee" nzType="primary">
+        <i nz-icon nzType="arrow-left"></i>
+        {{ "button.back" | translate }}
+      </button>
+    </ng-template></nz-card
+  >
+</div>

@@ -1,0 +1,18 @@
+<nz-card [nzBordered]="false"     [nzTitle]="'heading.travelRequest' | translate"[nzExtra]="action">
+  <app-table
+    [tableHeaders]="travelRequestHeaders"
+    [tableData]="travelRequests"
+    (onDelete) = "deleteRecord($event)"
+    (onEdit) = "editRecord($event)"
+    [formName] = "'travelRequest'"
+    [pageSize] = "5"
+    (onRowSelect) = "getRowData($event)"
+  ></app-table>
+</nz-card>
+
+<ng-template #action>
+  <button nz-button routerLink="/travel-request/action/add" nzType="primary">
+    {{ 'button.create' | translate }}
+  </button>
+</ng-template>
+<app-request-details [requestType]= "'travelRequest'" *ngIf="requestApprovalFlow && requestDetails" [requestDetails]="requestDetails" [requestApprovalProcess]="requestApprovalFlow"></app-request-details>

@@ -1,0 +1,56 @@
+<div class="form-layout">
+  <nz-card class="form-layout__card" [nzBordered]="false" [nzTitle]="'heading.employmentType' | translate" [nzExtra]="action">
+    <form 
+      nz-form
+ 
+      [formGroup]="form" 
+      (ngSubmit)="submitForm()"
+    >
+      <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzRequired nzFor="employmentTypeName">{{'form.employmentType.employmentTypeName' | translate}}</nz-form-label>
+
+        <nz-form-control [nzSpan]="15"  [nzErrorTip]="'validation.required' | translate">
+
+            <input
+              formControlName="empJobTypeCode"
+              type="text"
+              nz-input
+              [placeholder]="'form.employmentType.employmentTypeName' | translate"
+              appCapitalize
+              id="employmentTypeName"
+            />
+   
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzRequired nzFor="employmentTypeDescription">{{'form.employmentType.employmentTypeDescription' | translate}}</nz-form-label>
+
+        <nz-form-control [nzSpan]="15"  [nzErrorTip]="'validation.required' | translate">
+    
+            <input
+              formControlName="empJobTypeDesc"
+              nz-input
+              type="text"
+              [placeholder]="'form.employmentType.employmentTypeDescription' | translate"
+              appCapitalize
+              id="employmentTypeDescription"
+            />
+     
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control class="action-control">
+          <button nz-button nzType="primary" [disabled]="!form.valid">
+            {{ getButtonLabel() }}
+          </button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+    <ng-template #action>
+      <button nz-button routerLink="/employment-type" nzType="primary">
+        <i nz-icon nzType="arrow-left"></i>
+        {{ 'button.back' | translate }}
+      </button>
+    </ng-template></nz-card
+  >
+  </div>

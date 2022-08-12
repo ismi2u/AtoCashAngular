@@ -1,0 +1,35 @@
+<nz-card [nzBordered]="false" [nzTitle]=" 'heading.inbox' | translate " [nzExtra]="action">
+  <app-table
+    [tableHeaders]="requestHeaders"
+    [tableData]="requests"
+    [enableDelete]="false"
+    [enableEdit]="false"
+    [formName]="formName"
+    [pageSize]="requestType == 'expenseReimburse' ? 8 : 5"
+    [enableCheckBox]="true"
+    (onRowSelect) = "onRowData($event)"
+    (onRowCheck) = "rowChecked($event)"
+    (onRequestChange)="requestTypeChange($event)"
+    [requestType]="requestType"
+    [enableView]="requestType == 'expenseReimburse'"
+    (onView)="onView($event)"
+  ></app-table>
+</nz-card>
+
+<ng-template #action>
+  <div class="actions">
+    <div *ngFor="let status of availableStatus">
+      <button nz-button *ngIf="status.status.includes('Approve')"  (click)="showConfirm(status, 'Approve')"  nzType="primary">
+        <i nz-icon nzType="check-circle" nzTheme="outline"></i>
+       {{ 'button.approve' | translate }}
+      </button>
+      <button nz-button *ngIf="status.status.includes('Reject')"  (click)="showConfirm(status, 'Reject')"  nzType="danger">
+        <i nz-icon nzType="close-circle" nzTheme="outline"></i>
+        {{ 'button.reject' | translate }}
+       </button>
+    </div>
+  
+  </div>
+</ng-template>
+
+<app-request-details [requestType]="requestType" *ngIf="requestApprovalFlow && requestDetails" [requestDetails]="requestDetails" [requestApprovalProcess]="requestApprovalFlow"></app-request-details>

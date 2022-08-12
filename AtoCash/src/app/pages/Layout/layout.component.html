@@ -1,0 +1,268 @@
+<nz-layout class="app-layout">
+	<nz-sider
+		class="menu-sidebar"
+		nzCollapsible
+		nzWidth="256px"
+		nzBreakpoint="md"
+		[(nzCollapsed)]="isCollapsed"
+		[nzTrigger]="null"
+	>
+		<div
+			class="sidebar-logo"
+			[ngClass]="{ 'text-align-center': isCollapsed, 'flex-view':!isCollapsed  }"
+			(click)="isCollapsed = !isCollapsed"
+		>
+			<i nz-icon *ngIf="!isCollapsed" nzType="menu-fold" nzTheme="outline"></i>
+			<i nz-icon *ngIf="isCollapsed" nzType="menu-unfold" nzTheme="outline"></i>
+			<img *ngIf="!isCollapsed" class="logo" src="assets/logos/logo-2.png" alt="logo" />
+		</div>
+		<ul
+			nz-menu
+			nzTheme="dark"
+			nzMode="inline"
+			[nzInlineCollapsed]="isCollapsed"
+			class="nav"
+		>
+			<li *ngIf="canView() || canMange()" nz-menu-item nzMatchRouter routerLink="/dashboard">
+				<i nz-icon nzType="appstore" nzTheme="outline"></i>
+				<span>{{ 'heading.dashboard' | translate }} </span>
+			</li>
+			<li
+				*ngIf="canOrganize() || canOrganizeAndManage()"
+				nz-menu-item
+				nzMatchRouter
+				routerLink="/cost-center"
+			>
+				<i nz-icon nzType="account-book" nzTheme="outline"></i>
+				<span>{{ 'heading.costCenter' | translate }}</span>
+			</li>
+			<li *ngIf="canOrganize() || canOrganizeAndManage()" nz-menu-item nzMatchRouter routerLink="/department">
+				<i nz-icon nzType="apartment" nzTheme="outline"></i>
+				<span>{{ 'heading.department' | translate }}</span>
+			</li>
+
+			<li
+				*ngIf="canOrganize() || canOrganizeAndManage()"
+				nz-menu-item
+				nzMatchRouter
+				routerLink="/expense-type"
+			>
+				<i nz-icon nzType="calculator" nzTheme="outline"></i>
+				<span>{{ 'heading.expenseType' | translate }}</span>
+			</li>
+			<li
+				*ngIf="canOrganize() || canOrganizeAndManage()"
+				nz-submenu
+				[nzTitle]="'heading.approval' | translate"
+				nzIcon="file-protect"
+				[(nzOpen)]="openMap.approvals" (nzOpenChange)="openHandler('approvals')"
+			>
+				<ul>
+					<li nz-menu-item nzMatchRouter routerLink="/approval-level">
+						<a>{{ 'heading.level' | translate }}</a>
+					</li>
+					<li nz-menu-item nzMatchRouter routerLink="/approval-group">
+						<a>{{ 'heading.group' | translate }}</a>
+					</li>
+					<li nz-menu-item nzMatchRouter routerLink="/approval-role-map">
+						<a>{{ 'heading.roleMap' | translate }}</a>
+					</li>
+					<li nz-menu-item nzMatchRouter routerLink="/approval-status">
+						<a>{{ 'heading.status' | translate }}</a>
+					</li>
+				</ul>
+			</li>
+
+			<li
+				*ngIf="canOrganize() || canOrganizeAndManage()"
+				nz-submenu
+				[nzTitle]="'heading.projectManagement' | translate"
+				nzIcon="profile"
+				[(nzOpen)]="openMap.projects" (nzOpenChange)="openHandler('projects')"
+
+			>
+				<ul>
+					<li
+					
+						nz-menu-item
+						nzMatchRouter
+						routerLink="/project"
+					>
+						<a>{{ 'heading.project' | translate }}</a>
+					</li>
+					<li
+				
+						nz-menu-item
+						nzMatchRouter
+						routerLink="/sub-project"
+					>
+						<a>{{ 'heading.subProject' | translate }}</a>
+					</li>
+					<li nz-menu-item nzMatchRouter routerLink="/task">
+						<a>{{ 'heading.task' | translate }}</a>
+					</li>
+					<li
+						
+						nz-menu-item
+						nzMatchRouter
+						routerLink="/assign-project"
+					>
+						<a>{{ 'heading.assignProject' | translate }}</a>
+					</li>
+				</ul>
+			</li>
+
+			<li
+				*ngIf="canOrganize() || canOrganizeAndManage()"
+				nz-submenu
+				[nzTitle]="'heading.employeeManagement' | translate"
+				nzIcon="usergroup-add"
+				[(nzOpen)]="openMap.employees" (nzOpenChange)="openHandler('employees')"
+
+			>
+				<ul>
+					<li *ngIf="canOrganize() || canOrganizeAndManage()" nz-menu-item nzMatchRouter routerLink="/user">
+						<a> {{ 'heading.user' | translate }}</a>
+					</li>
+					<li
+						*ngIf="canOrganize() || canOrganizeAndManage()"
+						nz-menu-item
+						nzMatchRouter
+						routerLink="/employee"
+					>
+						<a>{{ 'heading.employee' | translate }}</a>
+					</li>
+
+					<li *ngIf="canOrganize() || canOrganizeAndManage()" nz-menu-item nzMatchRouter routerLink="/role">
+						<a>{{ 'heading.role' | translate }}</a>
+					</li>
+				</ul>
+			</li>
+
+			<li
+				*ngIf="canOrganize() || canOrganizeAndManage()"
+				nz-submenu
+				[nzTitle]="'heading.preferences' | translate"
+				nzIcon="setting"
+				[(nzOpen)]="openMap.preferences" (nzOpenChange)="openHandler('preferences')"
+			>
+				<ul>
+					<li
+					
+						nz-menu-item
+						nzMatchRouter
+						routerLink="/employment-type"
+					>
+						<a>{{ 'heading.employmentType' | translate }}</a>
+					</li>
+					<li
+			
+						nz-menu-item
+						nzMatchRouter
+						routerLink="/user-role"
+					>
+						<a>{{ 'heading.userRole' | translate }}</a>
+					</li>
+					<li nz-menu-item nzMatchRouter routerLink="/status">
+						<a>{{ 'heading.status' | translate }}</a>
+					</li>
+					<li
+					
+						nz-menu-item
+						nzMatchRouter
+						routerLink="/currency"
+					>
+						<a>{{ 'heading.currency' | translate }}</a>
+					</li>
+					<li
+					
+						nz-menu-item
+						nzMatchRouter
+						routerLink="/assign-role"
+					>
+						<a>{{ 'heading.assignRole' | translate }}</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</nz-sider>
+
+	<nz-layout>
+		<nz-header class="header">
+			<div>
+				<ul nz-menu nzMode="horizontal" class="header__nav">
+					<!-- <li>
+						<a class="brand">
+							<img class="brand__logo" src="assets/logos/logo.png" alt="logo" />
+						</a>
+					</li> -->
+					<li *ngIf="!canOrganize() && canPay()" nz-menu-item nzMatchRouter routerLink="/disburse">
+						<i nz-icon nzType="credit-card"></i>
+						{{ 'heading.disburse' | translate }}
+					</li>
+					<li *ngIf="!canOrganize()" nz-menu-item nzMatchRouter routerLink="/expense-reimburse">
+						<i nz-icon nzType="bar-chart"></i>
+						{{ 'heading.expenseReimburse' | translate }}
+					</li>
+					<li *ngIf="!canOrganize()" nz-menu-item nzMatchRouter routerLink="/cash-advance">
+						<i nz-icon nzType="dollar"></i>
+						{{ 'heading.cashAdvanceStatus' | translate }}
+					</li>
+					<li *ngIf="!canOrganize()" nz-menu-item nzMatchRouter routerLink="/travel-request">
+						<i nz-icon nzType="global" nzTheme="outline"></i>
+						{{ 'heading.travelRequest' | translate }}
+					</li>
+
+					<li
+						*ngIf="(canOrganizeAndManage() || canMange()) && !canOrganize()"
+						nz-menu-item
+						nzMatchRouter
+						routerLink="/inbox"
+					>
+						<i nz-icon nzType="inbox"></i>
+						{{ 'heading.inbox' | translate }}
+						<nz-badge *ngIf="requestService.inbox.length > 0" nzStatus="processing"></nz-badge>
+					</li>
+					<li *ngIf="!canOrganize()" nz-menu-item nzMatchRouter routerLink="/reports">
+						<i nz-icon nzType="file-done"></i>
+						{{ 'heading.report' | translate }}
+					</li>
+
+					<li class="header__translation">
+						<app-translations></app-translations>
+					</li>
+					<button
+						nz-dropdown
+						class="header__menu"
+						[nzPlacement]="'topRight'"
+						[nzDropdownMenu]="menu"
+						nz-button
+						nzType="text"
+					>
+						<i nz-icon nzType="user"></i> 
+						{{ userName }}
+					</button>
+					<nz-dropdown-menu #menu="nzDropdownMenu">
+						<ul nz-menu>
+							<li nz-menu-item class="header__user">
+								<p class="header__user--name">{{ userName }}</p>
+								<p class="header__user--email">{{ userEmail }}</p>
+							</li>
+
+							<li nzSelectable nz-menu-item (click)="logout()">{{'button.logout' | translate}}</li>
+						</ul>
+					</nz-dropdown-menu>
+				</ul>
+			</div>
+		</nz-header>
+
+		<nz-content>
+			<ng-template #indicatorTemplate 
+				><i class="indicator" nz-icon nzType="loading"></i
+			></ng-template>
+			<nz-spin [nzSpinning]="loading" [nzIndicator]="indicatorTemplate">
+				<router-outlet></router-outlet>
+			</nz-spin>
+		</nz-content>
+	</nz-layout>
+</nz-layout>

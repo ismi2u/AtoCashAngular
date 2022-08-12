@@ -1,0 +1,99 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+
+.ant-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 5px;
+}
+
+//   .ant-input {
+//       text-transform: capitalize;
+//   }
+
+.ant-form-item {
+  margin: 10px;
+  align-items: flex-start;
+}
+
+
+[nz-form] {
+  max-width: 630px;
+}
+
+nz-date-picker ::ng-deep .ant-calendar-picker {
+  width: 100%;
+}
+
+nz-date-picker,
+nz-time-picker {
+  width: 100%;
+}
+
+.action-control {
+  align-items: flex-end;
+}
+
+.form-layout {
+  display: flex;
+  justify-content: center;
+
+  &__card {
+    min-width: 700px;
+  }
+}
+
+.ant-modal-confirm-btns {
+  display: flex !important;
+}
+
+nz-select {
+  width: 100% !important;
+}
+
+.margin-top-24 {
+  margin-top: 24px;
+}
+
+.margin-top-16 {
+  margin-top: 24px;
+}
+
+
+
+
+@mixin respond($breakpoint) {
+
+  @if $breakpoint==phone {
+      @media (max-width: 37.5em) {
+          @content
+      };
+  }
+
+  @if $breakpoint==tab-portrait {
+      @media (max-width: 56.25em) {
+          @content
+      };
+  }
+
+  @if $breakpoint==tab-landscape {
+      @media (max-width: 75em) {
+          @content
+      };
+  }
+
+  @if $breakpoint==desktop {
+      @media (max-width: 112.5em) {
+          @content
+      };
+  }
+
+  @if $breakpoint==big-desktop {
+      @media (min-width: 120.5em) {
+          @content
+      };
+  }
+
+}

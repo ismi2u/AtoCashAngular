@@ -1,0 +1,134 @@
+<div class="form-layout">
+	<nz-card
+		class="form-layout__card"
+		[nzBordered]="false"
+		[nzTitle]="'heading.project' | translate"
+		[nzExtra]="action"
+	>
+		<form nz-form [formGroup]="form" (ngSubmit)="submitForm()">
+			<nz-form-item>
+				<nz-form-label [nzSpan]="7" nzRequired nzFor="projectName">{{
+					'form.project.projectName' | translate
+				}}</nz-form-label>
+				<nz-form-control
+					[nzSpan]="15"
+					[nzErrorTip]="'validation.required' | translate"
+				>
+					<input
+						formControlName="projectName"
+						type="text"
+						nz-input
+						[placeholder]="'form.project.projectName' | translate"
+						appCapitalize
+						id="projectName"
+					/>
+				</nz-form-control>
+			</nz-form-item>
+			<nz-form-item>
+				<nz-form-label [nzSpan]="7" nzRequired nzFor="projectDescription">{{
+					'form.project.projectDescription' | translate
+				}}</nz-form-label>
+				<nz-form-control
+					[nzSpan]="15"
+					[nzErrorTip]="'validation.required' | translate"
+				>
+					<input
+						formControlName="projectDesc"
+						nz-input
+						type="text"
+						[placeholder]="'form.project.projectDescription' | translate"
+						appCapitalize
+						id="projectDescription"
+					/>
+				</nz-form-control>
+			</nz-form-item>
+
+			<nz-form-item>
+				<nz-form-label [nzSpan]="7" nzRequired nzFor="costCenter">{{
+					'form.project.costCenter' | translate
+				}}</nz-form-label>
+
+				<nz-form-control
+					[nzSpan]="15"
+					[nzErrorTip]="'validation.required' | translate"
+				>
+					<nz-select
+						nzShowSearch
+						nzAllowClear
+						id="costCenter"
+						formControlName="costCenterId"
+						[nzPlaceHolder]="'form.project.costCenter' | translate"
+					>
+						<nz-option
+							*ngFor="let option of costCenterList"
+							[nzValue]="option.id"
+							[nzLabel]="option.costCenterCode"
+						></nz-option>
+					</nz-select>
+				</nz-form-control>
+			</nz-form-item>
+
+			<nz-form-item>
+				<nz-form-label [nzSpan]="7" nzRequired nzFor="projectManager">{{
+					'form.project.projectManager' | translate
+				}}</nz-form-label>
+
+				<nz-form-control
+					[nzSpan]="15"
+					[nzErrorTip]="'validation.required' | translate"
+				>
+					<nz-select
+						nzShowSearch
+						nzAllowClear
+						id="costCenter"
+						formControlName="projectManagerId"
+						[nzPlaceHolder]="'form.project.projectManager' | translate"
+					>
+						<nz-option
+							*ngFor="let option of employees"
+							[nzValue]="option.id"
+							[nzLabel]="option.fullName"
+						></nz-option>
+					</nz-select>
+				</nz-form-control>
+			</nz-form-item>
+			<nz-form-item>
+				<nz-form-label [nzSpan]="7" nzRequired nzFor="costCenter">{{
+					'form.status.status' | translate
+				}}</nz-form-label>
+
+				<nz-form-control
+					[nzSpan]="15"
+					[nzErrorTip]="'validation.required' | translate"
+				>
+					<nz-select
+						nzShowSearch
+						nzAllowClear
+						id="costCenter"
+						formControlName="statusTypeId"
+						[nzPlaceHolder]="'form.status.status' | translate"
+					>
+						<nz-option
+							*ngFor="let option of status"
+							[nzValue]="option.id"
+							[nzLabel]="option.status"
+						></nz-option>
+					</nz-select>
+				</nz-form-control>
+			</nz-form-item>
+			<nz-form-item>
+				<nz-form-control class="action-control">
+					<button nz-button nzType="primary" [disabled]="!form.valid">
+						{{ getButtonLabel() }}
+					</button>
+				</nz-form-control>
+			</nz-form-item>
+		</form>
+		<ng-template #action>
+			<button nz-button routerLink="/project" nzType="primary">
+				<i nz-icon nzType="arrow-left"></i>
+				{{ 'button.back' | translate }}
+			</button>
+		</ng-template></nz-card
+	>
+</div>

@@ -1,0 +1,507 @@
+{
+	"heading": {
+		"edit": "Editar",
+		"delete": "Eliminar",
+		"view": "Ver más",
+		"duplicate": "Duplicar",
+		"chargeTo": "Cargo para",
+		"totalAmount": "Cantidad total",
+		"requestDetails": "Detalles de la solicitud",
+		"expenseDetails": "Detalles de gastos",
+		"information": "información",
+		"yourCard": "Tu tarjeta",
+		"currentBalance": "Saldo actual",
+		"maxLimit": "Límite máximo",
+		"onHand": "Efectivo en mano",
+		"accountStatus": "Estado",
+		"bankCredit": "Crédito bancario",
+		"walletCredit": "Crédito de cartera",
+		"userRole": "Roles de acceso",
+		"assignRole": "Asignar roles",
+		"assignProject": "Asignar proyecto",
+		"user": "Usuarios",
+		"task": "Tareas",
+		"subProject": "Subproyectos",
+		"project": "Proyectos",
+		"approval": "Aprobaciones",
+		"level": "Niveles",
+		"group": "Grupos",
+		"roleMap": "Mapas de Roles",
+		"approvalLevel": "Niveles de Aprobación",
+		"approvalGroup": "Grupos de Aprobación",
+		"approvalRoleMap": "Mapas de Roles de Aprobación ",
+		"approvalStatus": "Estado de Aprobación",
+		"dashboard": "Dashboard",
+		"costCenter": "Centros de Coste",
+		"department": "Departamentos",
+		"role": "Roles de trabajo",
+		"employmentType": "Tipos de empleo",
+		"expenseType": "Tipos de gastos",
+		"expenseStatus": "Estado de gastos",
+		"cashAdvanceStatus": "Adelanto en efectivo",
+		"myInbox": "Mi Inbox",
+		"report": "Reportes",
+		"inbox": "Mi Inbox",
+		"logout": "Cierre de sesión",
+		"action": "Acción",
+		"employees": "Empleados",
+		"travelRequest": "Solicitud de viaje",
+		"expenseReimburse": "Reembolso de gastos",
+		"status": "Tipos de estado",
+		"currency": "Moneda",
+		"projectManagement": "Gestión de proyectos",
+		"preferences": "Preferencias",
+		"employeeManagement": "Gestión de empleados",
+		"filters": "Filtros",
+		"search": "Buscar",
+		"assignEmployeesToProject": "Asignar empleados al proyecto",
+		"employeesAssigned": "Empleados no asignados",
+		"approved": "Aprobado",
+		"rejected": "Rechazado",
+		"pending": "pendiente",
+		"assigned": "Asignado",
+		"notAssigned": "No Asignado",
+		"employee": "Empleado",
+		"disburse": "Cuentas por pagar",
+		"expenseReimburseInitialization": "Reembolso de gastos Inicialización",
+		"subClaims": "Subpartidas de gastos",
+		"settlementStatus":"Estado de liquidación",
+		"settlementFrom": "desde",
+		"settlementTo": "a"
+	},
+	"form": {
+		"disburse": {
+			"comment": "Comentario",
+			"additionalData": "Datos Adicionales"
+		},
+		"currency": {
+			"currencyCode": "Código",
+			"currencyName": "Nombre",
+			"country": "País"
+		},
+		"expenseReimburse": {
+			"expenseReimburseAmount": "Cantidad de gasto",
+			"enableProject": "Activar el proyecto",
+			"project": "Proyecto",
+			"expense": "Gasto",
+			"subProject": "Subproyecto",
+			"task": "Tarea",
+			"documents": "Documentos",
+			"invoiceNo": "Número de factura",
+			"invoiceDate": "Fecha de factura",
+			"tax": "Impuesto (%)",
+			"vendor": "Vendedor",
+			"description": "Descripción",
+			"taxAmount": "Cantidad del impuesto",
+			"title": " Título de gasto",
+			"employee": " Empleado",
+			"location": "Lugar"
+		},
+		"status": {
+			"status": "Estado"
+		},
+		"cashAdvance": {
+			"employee": "Empleado",
+			"advanceAmount": "Cantidad de Anticipo",
+			"requestDescription": "Descripción de Solicitud",
+			"enableProject": "Activar el proyecto",
+			"project": "Proyecto",
+			"subProject": "SubProyecto",
+			"task": "Tarea",
+			"currency": "Moneda"
+		},
+		"travel": {
+			"startDate": "Fecha de inicio",
+			"endDate": "Fecha de finalización",
+			"travelPurpose": "Motivo de viaje",
+			"enableProject": "Activar el proyecto",
+			"project": "Proyecto",
+			"subProject": "SubProyecto",
+			"task": "Tarea",
+			"currency": "Moneda"
+		},
+		"login": {
+			"email": "Correo electrónico",
+			"password": "contraseña",
+			"forgetPassword": "olvidado la contraseña",
+			"rememberMe": "me recuerda"
+		},
+		"userRole": {
+			"roleName": "Nombre del rol"
+		},
+		"user": {
+			"email": "Correo electrónico",
+			"userName": "Nombre de usuario",
+			"password": "contraseña",
+			"employee": "Empleado"
+		},
+		"task": {
+			"subProject": "SubProyecto",
+			"taskName": "Nombre",
+			"taskDescription": "Descripción"
+		},
+
+		"costCenter": {
+			"costCenterCode": "Código del centro de costes",
+			"costCenterDescription": "Nombre del centro de costes",
+			"status": "Estado"
+		},
+		"department": {
+			"departmentCode": "Código del Departamento",
+			"departmentName": "Nombre del Departamento",
+			"costCenter": "Centro de costes",
+			"status": "Estado"
+		},
+		"role": {
+			"roleCode": "Código de rol",
+			"roleName": "Nombre de rol",
+			"maxAmount": "Cantidad máximo"
+		},
+		"employmentType": {
+			"employmentTypeName": "Nombre",
+			"employmentTypeDescription": "Descripción"
+		},
+		"expenseType": {
+			"expenseTypeName": "Nombre",
+			"expenseTypeDescription": "Descripción"
+		},
+		"approvalLevel": {
+			"level": "Nivel",
+			"levelDescription": "Descripción"
+		},
+		"approvalGroup": {
+			"groupCode": "Codigo",
+			"groupDescription": "Descripción"
+		},
+		"approvalRoleMap": {
+			"group": "Grupo",
+			"role": "Rol",
+			"level": "Nivel"
+		},
+		"approvalStatus": {
+			"status": "Estado",
+			"statusDescription": "Descripción de estado"
+		},
+		"employee": {
+			"firstName": "primer nombre",
+			"lastName": "Apellido",
+			"middleName": "Segundo nombre",
+			"empCode": "Codigo de empleado",
+			"bankAccount": "Cuenta de banco",
+			"bankCardNo": "Número de tarjeta bancaria",
+			"nationalId": "Documento Nacional de Identidad",
+			"passportNo": "Pasaporte no",
+			"taxNumber": "Número de identificación fiscal",
+			"dob": "Fecha de nacimiento",
+			"approvalGroup": "Grupo de Aprobación",
+			"role": "Rol",
+			"employmentType": "Tipo de empleo",
+			"department": "Departamento",
+			"gender": "Género",
+			"email": "Correo electrónico",
+			"mobile": "Móvil",
+			"doj": "Fecha de inscripción",
+			"nationality": "Nacionalidad",
+			"status": "Estado",
+			"currency": "Moneda"
+		},
+		"project": {
+			"projectName": "Nombre",
+			"projectDescription": "Descripcion",
+			"costCenter": "Centro de Costes",
+			"projectManager": "Director del proyecto"
+		},
+		"subProject": {
+			"subProjectName": "Nombre",
+			"subProjectDescription": "Descripcion",
+			"project": "Proyecto"
+		},
+		"assignRole": {
+			"user": "Usuario",
+			"role": "Rol"
+		},
+		"assignProject": {
+			"employee": "Empleado",
+			"project": "Proyecto"
+		}
+	},
+	"tableHeader": {
+		"currency": {
+			"currencyCode": "Codigo",
+			"currencyName": "Nombre",
+			"country": "Pais"
+		},
+		"status": {
+			"status": "Estado"
+		},
+		"disburse": {
+			"id": "Id",
+			"employee": "Empleado",
+			"department": "Departamento",
+			"project": "Proyecto",
+			"claimAmount": "Cantidad reclamada",
+			"status": "Estado de liquidación"
+		},
+		"travel": {
+			"startDate": "Fecha de inicio",
+			"endDate": "fecha de finalización",
+			"travelPurpose": "Motivo de viaje",
+			"department": "Departamento",
+			"project": "Proyecto",
+			"requestDate": "Fecha de solicitud",
+			"id": "Id",
+			"status": "Estado",
+			"claimAmount": "Cantidad reclamada"
+		},
+		"userRole": {
+			"roleName": "Nombre de rol"
+		},
+		"user": {
+			"userName": "Nombre de usuario",
+			"email": "Correo electrónico"
+		},
+		"task": {
+			"subProject": "SubProyecto",
+			"taskName": "Nombre",
+			"taskDescription": "Descripcion",
+			"status": "Estado"
+		},
+		"cashAdvance": {
+			"advanceAmount": "Cantidad",
+			"advanceDescription": "Descripcion",
+			"department": "Departamento",
+			"project": "Proyecto",
+			"requestDate": "Fecha de solicitud",
+			"id": "Id",
+			"status": "Estado",
+			"claimAmount": "Cantidad reclamada"
+		},
+		"inbox": {
+			"employee": "Empleado",
+			"department": "Departamento",
+			"project": "Proyecto",
+			"requestDate": "Fecha de solicitud",
+			"id": "Id",
+			"status": "Estado",
+			"comments": "Comentarios",
+			"claimAmount": "cantidad reclamada",
+			"costCenter": "centro de coste",
+			"invoiceDate": "Fecha de la factura",
+			"expenseType": "Tipo de gasto"
+		},
+		"costCenter": {
+			"costCenterCode": "Código del centro de costos",
+			"costCenterDescription": "Nombre del centro de costos",
+			"status": "Estado"
+		},
+		"department": {
+			"departmentCode": "Codigo del Departamento",
+			"departmentName": "Nombre del Departamento",
+			"costCenter": "Centro de costos",
+			"status": "Estado"
+		},
+		"role": {
+			"roleCode": "Codigo de Rol",
+			"roleName": "Nombre de Rol",
+			"maxAmount": "Cantidad Maximo"
+		},
+		"employmentType": {
+			"employmentTypeName": "Nombre",
+			"employmentTypeDescription": "Descripcion"
+		},
+		"expenseType": {
+			"expenseTypeName": "Nombre",
+			"expenseTypeDescription": "Descripcion",
+			"status": "Estado"
+		},
+		"approvalLevel": {
+			"level": "Nivel",
+			"levelDescription": "Descripcion"
+		},
+		"approvalGroup": {
+			"groupCode": "Codigo",
+			"groupDescription": "Descripcion"
+		},
+		"approvalRoleMap": {
+			"group": "Grupo",
+			"role": "Rol",
+			"level": "Nivel",
+			"employeeName": "Nombre de empleado"
+		},
+		"approvalStatus": {
+			"status": "Estado",
+			"statusDescription": "Descripcion de estado"
+		},
+
+		"employee": {
+			"name": "Nombre",
+			"email": "Correo electronico",
+			"mobile": "Movil",
+			"doj": "Fecha de inscripción",
+			"nationality": "Nacionalidad",
+			"jobRole": "Puesto de trabajo"
+		},
+		"project": {
+			"projectName": "Nombre",
+			"projectDescription": "Descripcion",
+			"projectManager": "Director del proyecto",
+			"status": "Estado"
+		},
+		"subProject": {
+			"subProjectName": "Nombre",
+			"subProjectDescription": "Descripcion",
+			"project": "Proyecto",
+			"status": "Estado"
+		},
+		"assignRole": {
+			"user": "Usuario",
+			"role": "Rol"
+		},
+		"expenseReimburse": {
+			"create": {
+				"invoiceNo": "Número de factura",
+				"invoiceDate": "Fecha de factura",
+				"claimAmount": "Cantidad reclamado",
+				"expenseType": "Tipo de gasto"
+			},
+			"list": {
+				"expenseName": "Nombre de gasto",
+				"claimAmount": "Cantidad reclamado",
+				"department": "Departamento",
+				"project": "Proyecto",
+				"requestDate": "Fecha de solicitud",
+				"id": "Id",
+				"status": "Estado"
+			}
+		},
+		"assignProject": {
+			"employee": "Empleado",
+			"project": "Proyecto"
+		}
+	},
+	"button": {
+		"next": "Next",
+		"create": "Crear",
+		"update": "Actualizar",
+		"back": "Atras",
+		"assign": "Asignar",
+		"delete": "Eliminar",
+		"cancel": "Cancelar",
+		"approve": "Aprobar",
+		"remove": "quitar",
+		"reject": "Rechazar",
+		"login": "Iniciar sesión",
+		"addNew": "Añadir nuevas",
+		"add": "Añadir",
+		"submit": "Presentar",
+		"yes": "sí",
+		"no": "No",
+		"download": "descargar",
+		"downloadReports": "Descargar informe",
+		"updateExpenseMethod": "Actualizar Método de gastos",
+		"logout": "Cerrar la sesión",
+		"changePassword": "Cambiar contraseña",
+		"requestReset": "solicitar enlace de restablecimiento",
+		"automate": "Automatizar",
+		"settle": "Liquidar"
+	},
+	"validation": {
+		"required": "Campo requerido!",
+		"invalidEmail": "Correo electrónico no válido!",
+		"onlyAlphabets": "¡Sólo se permiten alfabetos!",
+		"accountNo": "Cuenta.No debe tener al menos 10 dígitos!",
+		"onlyNumbers": "¡Sólo se permiten números!",
+		"cardNo": "¡La numero de tarjeta debería tener 16 dígitos!",
+		"taxNo": "¡Número de Impuestos Inválido!",
+		"invalidMobileNo": "¡Número de móvil no válido!",
+		"docAlert": "(Compruebe si toda la reclamación se adjunta con al menos un documento)"
+	},
+	"notification": {
+		"notification": "Notificación",
+		"addRequest": "Datos añadidos con éxito!",
+		"updateRequest": "Datos actualizados con éxito!",
+		"deleteRequest": "Datos eliminados con éxito!",
+		"noRequestSelected": "¡No se ha seleccionado ninguna solicitud!"
+	},
+	"alert": {
+		"approve": "¿Seguro que quieres aprobarlo?",
+		"reject": "¿Seguro que quieres rechazar?",
+		"delete": "¿Seguro que quieres borrar?"
+	},
+	"components": {
+		"requestDetails": {
+			"employee": "Empleado",
+			"department": "Departamento",
+			"requestDate": "Fecha solicitada",
+			"travelStartDate": "Fecha de inicio",
+			"travelEndDate": "Fecha de finalización",
+			"travelPurpose": "Motivo del viaje",
+			"claimAmount": "Cantidad reclamado",
+			"expenseTitle": "Título de gasto",
+			"currentStatus": "Estado actual",
+			"id": "Id",
+			"cashAdvanceDetails": "Detalles del anticipo en efectivo",
+			"advanceAmount": "Importe anticipado",
+			"subProject": "Subproyecto",
+			"workTask": "Tarea de trabajo",
+			"description": "Descripcion",
+			"expenseRequestTitle": "Detalles de la solicitud de gastos",
+			"project": "Proyecto",
+			"travelRequestDetails": "Detalles de la solicitud de viaje",
+			"invoiceNo": "Número de factura",
+			"invoiceDate": "Fecha de factura",
+			"location": "Lugar",
+			"taxAmount": "Importe del impuesto",
+			"vendor": "vendedor",
+			"expense": "Gasto",
+			"documents": "documentos",
+			"comments": "Commentarios",
+			"currency": "Moneda",
+			"recordDate": "Fecha de registro",
+			"accountNo": "Cuenta.No",
+			"cardNo": "Número de tarjeta"
+		},
+		"filters": {
+			"reports": {
+               "department": "Departamento",
+			   "project": "Proyecto",
+			   "subProject":"SubProyecto",
+			   "task": "Tarea",
+			   "costCenter":"centro de Costes",
+			   "status":"Estado",
+			   "from": "Fecha de solicitud desde",
+				"to": "Fecha de solicitud hasta",
+				"amount": "importe desde - hasta",
+				"travelFrom": "Fecha de viaje Inicio",
+				"travelTo": "Fecha de viaje Fin",
+				"travelPurpose": "Propósito de viaje",
+				"employees": "Empleados",
+				"employeeName": "Nombre de empleado",
+				"employeeCode": "Codigo de empleado",
+				"bankAccount": "Cuenta bancaria",
+				"nationalId": "Identificación nacional",
+				"passportNo": "Pasaporte. No",
+				"taxNo": "Impuestos. No",
+				"nationality": "Nacionalidad",
+				"gender": "Género",
+				"email": "Correo electrónico",
+				"mobileNo": "Móvil. No",
+				"employmentType": "Tipo de empleo",
+				"jobRole": "Puesto de trabajo",
+				"approvalGroup": "Grupo de Aprobación",
+				"roleId": "Id de puesto",
+				"expenseType": "tipo de gasto",
+				"all": "Todo",
+				"settled": "liquidado",
+				"notSettled": "no liquidado",
+				"male": "Masculino",
+				"female": "Feminino",
+				"others": "Otros",
+				"myReports": "Mis informes"
+			}
+		}
+	},
+	"tooltip": {
+		"automate": "Necesita la herramienta UiPath para automatizar"
+	}
+}

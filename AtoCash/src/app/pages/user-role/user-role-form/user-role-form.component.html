@@ -1,0 +1,42 @@
+
+<div class="form-layout">
+<nz-card class="form-layout__card" [nzBordered]="false" [nzTitle]="'heading.userRole' | translate" [nzExtra]="action">
+    <form
+      nz-form
+      [formGroup]="form"
+      (ngSubmit)="submitForm()"
+    >
+ <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzRequired nzFor="roleName">Role Name</nz-form-label>
+        <nz-form-control [nzSpan]="15" [nzErrorTip]="'validation.required' |translate ">
+            <input
+             id="roleName"
+              formControlName="roleName"
+              type="text"
+              nz-input
+              [placeholder]="'form.userRole.roleName' | translate"
+              appCapitalize
+            />
+        </nz-form-control>
+      </nz-form-item>
+     
+ 
+ <!--     <app-form-input-item [error]="form.get('roleName').errors" [required]="true" [errorTip]="'Field is Required'" [label]="'Role'" [placeholder]="'form.userRole.roleName' | translate"  [formControlName]="'roleName'" ></app-form-input-item> -->
+
+      <nz-form-item>
+        <nz-form-control class="action-control">
+          <button nz-button nzType="primary" [disabled]="!form.valid">
+            {{ getButtonLabel() }}
+          </button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+    <ng-template #action>
+      <button nz-button routerLink="/user-role" nzType="primary">
+        <i nz-icon nzType="arrow-left"></i>
+        {{ 'button.back' | translate }}
+      </button>
+    </ng-template></nz-card
+  >
+
+</div>

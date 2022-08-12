@@ -1,0 +1,50 @@
+<div class="form-layout">
+	<nz-card
+		class="form-layout__card"
+		[nzBordered]="false"
+		[nzTitle]="'heading.assignEmployeesToProject' | translate"
+	>
+		<nz-form-item>
+			<nz-form-label [nzSpan]="6" nzFor="projectName">{{
+				'form.assignProject.project' | translate
+			}}</nz-form-label>
+
+			<nz-form-control
+				[nzSpan]="12"
+				[nzErrorTip]="'validation.required' | translate"
+			>
+				<nz-select
+					nzShowSearch
+					[nzPlaceHolder]="'form.assignProject.project' | translate"
+					type="text"
+					nz-input
+					[(ngModel)]="selectedProject"
+					(ngModelChange)="onProjectChange($event)"
+				>
+					<nz-option
+						*ngFor="let option of projects"
+						[nzLabel]="option.projectName"
+						[nzValue]="option.id"
+					></nz-option>
+				</nz-select>
+			</nz-form-control>
+		</nz-form-item>
+		<div class="margin-top-24">
+			<nz-transfer
+				[nzDataSource]="employees"
+				[nzTitles]="['heading.notAssigned' | translate , 'heading.assigned' | translate]"
+				nzShowSearch
+				[nzSearchPlaceholder]="'heading.search' | translate"
+				[nzOperations]="['button.assign' | translate, 'button.remove' | translate]"
+				[nzListStyle]="{ 'width.px': 300, 'height.px': 400 }"
+				[nzRender]="render"
+				(nzSelectChange)="onSelectChange($event)"
+				(nzChange)="onTransfer($event)"
+				[nzItemUnit]="'heading.employee'| translate"
+				[nzItemsUnit]="'heading.employees' | translate"
+			>
+				<ng-template #render let-item> {{ item.employeeName }} </ng-template>
+			</nz-transfer>
+		</div>
+	</nz-card>
+</div>

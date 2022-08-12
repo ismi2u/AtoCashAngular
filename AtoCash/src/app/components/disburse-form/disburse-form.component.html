@@ -1,0 +1,50 @@
+<div class="account-details" >
+	<p class="account-details__label">{{'heading.bankCredit' | translate}}</p>
+	<p class="account-details__value">	{{ requestDetails.amountToCredit }}</p>
+</div>
+<div class="account-details" *ngIf="requestDetails?.bankAccount">
+	<p class="account-details__label">{{'components.requestDetails.accountNo' | translate}}</p>
+
+	<p class="account-details__value">	{{ requestDetails.bankAccount }}</p>
+</div>
+<div class="account-details" *ngIf="requestDetails?.bankCardNo">
+	<p class="account-details__label">{{'components.requestDetails.cardNo' | translate}}</p>
+	<p class="account-details__value">{{ requestDetails.bankCardNo }}</p>
+</div>
+
+<div class="account-details" *ngIf="requestDetails?.settlementComment">
+	<p class="account-details__label">{{'form.disburse.comment' | translate}}</p>
+
+	<p class="account-details__value">		{{ requestDetails.settlementComment }}</p>
+</div>
+<div class="account-details" *ngIf="requestDetails?.additionalData">
+	<p class="account-details__label">{{'form.disburse.additionalData' | translate}}</p>
+	<p class="account-details__value">	{{ requestDetails.additionalData }}</p>
+</div>
+
+
+<form *ngIf="!requestDetails.isSettledAmountCredited" nz-form [nzLayout]="'vertical'" class="filters-form" [formGroup]="form">
+	<nz-form-item *ngFor="let filter of formControls" class="filters-form__item">
+		<nz-form-label nzFor="costCenter">{{
+			filter.label | translate
+		}}</nz-form-label>
+		<nz-form-control
+			*ngIf="filter.type == 'text' || filter.type == 'number'"
+			class="filters-form__control"
+		>
+			<input
+				nz-input
+				[placeholder]="filter.label | translate"
+				[type]="filter.type"
+				[formControlName]="filter.name"
+			/>
+		</nz-form-control>
+	</nz-form-item>
+	<nz-form-item>
+		<nz-form-control class="action-control">
+			<button nz-button nzType="primary" (click)="onSubmit()" [disabled]="!form.valid">
+				{{'button.settle' | translate}}
+			</button>
+		</nz-form-control>
+	</nz-form-item>
+</form>

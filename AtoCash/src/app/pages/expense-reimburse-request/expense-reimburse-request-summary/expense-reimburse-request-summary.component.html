@@ -1,0 +1,39 @@
+
+
+<p *ngIf="!data.projectId">
+  <b>{{ 'heading.chargeTo' | translate}} </b>  {{ 'components.requestDetails.department' | translate}}
+  </p>
+<nz-descriptions nzTitle="Charge To" *ngIf="data.projectId">
+ 
+  <nz-descriptions-item *ngIf="data.projectId && project" [nzTitle]="'Project'">
+    {{ project?.projectName }}
+  </nz-descriptions-item>
+
+  <nz-descriptions-item *ngIf="data.subProjectId && subProject" [nzTitle]="'Sub Project'">
+    {{ subProject?.subProjectName }}
+  </nz-descriptions-item>
+  <nz-descriptions-item *ngIf="data.workTaskId && workTask" [nzTitle]="'Work Task'">
+    {{ workTask?.taskName }}
+  </nz-descriptions-item>
+</nz-descriptions>
+
+<nz-list nzBordered [nzHeader]="'heading.subClaims'  |  translate">
+  <nz-list-item *ngFor="let item of data.subClaims">
+    <span nz-typography
+      >{{ getExpenseName(item.expenseTypeId)}}</span
+    >
+    {{ item.expenseReimbClaimAmount + item.taxAmount  }}
+  </nz-list-item>
+  <nz-list-item>
+    <span nz-typography><b>{{ 'heading.totalAmount' | translate}}</b></span>
+    <b> {{ data.totalAmount }}</b>
+  </nz-list-item>
+</nz-list>
+
+<p class="disclaimer">
+  {{ 'alert.claimAlert' |  translate}}
+</p>
+
+<button class="action" nz-button nzType="primary" (click)="submit()">
+  {{ "button.submit" | translate }}
+</button>

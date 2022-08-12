@@ -1,0 +1,397 @@
+{
+	"heading": {		
+		"userRole": "Kullanıcı Rolü",
+		"assignRole": "Rol Devral",
+		"assignProject": "Proje Devral",
+		"assignEmployeesToProject": "Projeye Kullanıcı Devral",
+		"user": "Kullanıcılar",
+		"task": "Görevler",
+		"subProject": "Alt Projeler",
+		"project": "Projeler",
+		"employee": "Çalışanlar",
+		"approval": "Onaylar",
+		"level": "Seviyeler",
+		"group": "Gruplar",
+		"roleMap": "Rol haritaları",
+		"approvalLevel": "Onay Seviyeleri",
+		"approvalGroup": "Onay grupları",
+		"approvalRoleMap": "Onay Role Haritaları",
+		"approvalStatus": "Onay durumları",
+		"dashboard": "Gösterge Paneli",
+		"costCenter": "Masraf merkezleri",
+		"department": "Departmanlar",
+		"role": "İş Rolleri",
+		"employmentType": "Çalışan tipleri",
+		"expenseType": "Masraf tipleri",
+		"expenseStatus": "Masraf durumu",
+		"cashAdvanceStatus": "Nakit Avans durumu",
+		"myInbox": "posta kutum",
+		"report": "Raporlar",
+		"inbox": "posta kutum",
+		"logout": "Çıkış",
+		"action": "Aksiyon",
+		"travelRequest": "Seyahat Talebi",
+		"expenseReimburse": "Masraf Tazminatı",
+		"status": "Statu Tipleri",
+		"currency": "Para Birimi",
+		"projectManagement": "Proje Yönetimi",
+		"preferences": "Referanslar",
+		"employeeManagement": "Çalışan Yönetimi ",
+		"filters": "Filtreler"
+	},	
+	"form": {	
+		"Para Birimi ": {
+		"currencyCode": "Kodu ",
+		"currencyName": "Para Birimi",
+		"country": "Ülke "
+		},
+		"Masraf Tazminatı": {
+		"expenseReimburseAmount": "Masraf Tutarı",
+		"enableProject": "Etkin Proje",
+		"project": "Proje",
+		"expense": "Masraf",
+		"subProject": "Alt Proje",
+		"task": "Görev",
+		"documents": "Dökümalar",
+		"invoiceNo": "Fatura No",
+		"invoiceDate": "Fatura Tarihi",
+		"tax": "Vergi (%)",
+		"vendor": "Satıcı ",
+		"description": "Açıklama",
+		"taxAmount": "Vergi Tutarı",
+		"title": " Masraf Başlık",
+		"employee": " Çalışan",
+		"location": "Lokasyon"
+		},
+		"Durum": {
+		"status": "Durum"
+		},
+		"Nakit Avans": {
+		"employee": "Çalışan",
+		"advanceAmount": "Avans Miktarı",
+		"requestDescription": "Talep Açıklaması",
+		"enableProject": "Etkin Proje",
+		"project": "Proje",
+		"subProject": "Alt Proje",
+		"task": "Görev",
+		"currency": "Para Birimi "
+		},
+		"Seyahat": {
+		"startDate": "Başlangıç Tarihi",
+		"endDate": "Bitiş Tarihi",
+		"travelPurpose": "Seyahat Amacı ",
+		"enableProject": "Etkin Proje",
+		"project": "Proje",
+		"subProject": "Alt Proje",
+		"task": "Görev",
+		"currency": "Para Birimi "
+		},
+		"Bağlan ": {
+		"email": "Email",
+		"password": "Şifre",
+		"forgetPassword": "Şifre Unuttum",
+		"rememberMe": "Beni Hatırla"
+		},
+		"Kullanıcı Rolü": {
+		"roleName": "Role Tanımı"
+		},
+		"Kullanıcı": {
+		"email": "Email",
+		"userName": "Kullanıcı İsmi",
+		"password": "Şifre",
+		"employee": "Çalışan"
+		},
+		"Görev": {
+		"subProject": "Alt Proje",
+		"taskName": "Görev İsmi ",
+		"taskDescription": "Açıklama"
+		},
+		
+		"Masraf Merkezi": {
+		"costCenterCode": "Masraf Merkezi Kodu",
+		"costCenterDescription": "Masraf Merkezi İsmi ",
+		"status": "Durum"
+		},
+		"Departman": {
+		"departmentCode": "Departman Kodu ",
+		"departmentName": "Departman İsmi",
+		"costCenter": "Masraf Merkezi",
+		"status": "Durum"
+		},
+		"Kullanıcı": {
+		"roleCode": "Kullanıcı Kodu",
+		"roleName": "Kullanıcı İsmi ",
+		"maxAmount": "Max Tutar"
+		},
+		"İş Tipi": {
+		"employmentTypeName": "İsmi ",
+		"employmentTypeDescription": "Açıklama "
+		},
+		"Masraf Tipi": {
+		"expenseTypeName": "Masraf Tipi İsmi ",
+		"expenseTypeDescription": "Masraf Tipi Açıklaması"
+		},
+		"Onay Seviyesi ": {
+		"level": "Seviye",
+		"levelDescription": "Açıklama "
+		},
+		"Onay Grubu": {
+		"groupCode": "Grup Kodu",
+		"groupDescription": "Açıklama"
+		},
+		"Onay Rol Haritası": {
+		"group": "Grup",
+		"role": "Rol",
+		"level": "Seviye"
+		},
+		"Onay Durum": {
+		"status": "Durum",
+		"statusDescription": "Durum Açıklaması "
+		},
+		"Çalışan ": {
+		"firstName": "İsim",
+		"lastName": "Soyad ",
+		"middleName": "İkinci İsmi ",
+		"empCode": "Çalışan Kodu ",
+		"bankAccount": "Banka Hesap No ",
+		"bankCardNo": "Banka Kart No",
+		"nationalId": "Kimlik No",
+		"passportNo": "Pasaport NO",
+		"taxNumber": "Vergi No",
+		"dob": "Dogum Tarihi",
+		"approvalGroup": "Onay Grubu",
+		"role": "Rol",
+		"employmentType": "İş Tipi",
+		"department": "Departman",
+		"gender": "Cinsiyet",
+		"email": "Email",
+		"mobile": "Cep Telefonu",
+		"doj": "İşe Giriş Tarihi ",
+		"nationality": "Uyruk",
+		"status": "Durum",
+		"currency": "Para Birimi"
+		},
+		"Proje": {
+		"projectName": "Proje İsmi ",
+		"projectDescription": "Proje Açıklaması",
+		"costCenter": "Masraf Merkezi",
+		"projectManager": "Proje Yöneticisi"
+		},
+		"Alt Proje": {
+		"subProjectName": "Alt Proje İsmi ",
+		"subProjectDescription": "Alt Proje Açıklaması",
+		"project": "Proje"
+		},
+		"Rol Devral": {
+		"user": "Kullanıcı",
+		"role": "Rol"
+		},
+		"Proje Devral ": {
+		"employee": "Çalışan ",
+		"project": "Proje "
+		}
+	},	
+	"tableHeader": {	
+		"Para Birimi": {
+		"currencyCode": "Para Birimi Kodu",
+		"currencyName": "Para Birimi Kodu",
+		"country": "Ülke "
+		},
+		"Durum": {
+		"status": "Durum"
+		},
+		"Seyahat": {
+		"startDate": "Başlangıç Tarihi" ,
+		"endDate": "Bitiş Tarihi",
+		"travelPurpose": "Seyahat Amacı ",
+		"department": "Departman",
+		"project": "Proje",
+		"requestDate": "Talep Tarihi",
+		"id": "Id",
+		"status": "Durum"
+		},
+		"Kullanıcı Rolu ": {
+		"roleName": "Rol Tanımı"
+		},
+		"Kullanıcı": {
+		"userName": "Kullanıcı İsmi",
+		"email": "Email"
+		},
+		"Görev": {
+		"subProject": "Alt Proje",
+		"taskName": "İsmi ",
+		"taskDescription": "Açıklama "
+		},
+		"Nakit Avans": {
+		"advanceAmount": "Tutar",
+		"advanceDescription": "Açıklama ",
+		"department": "Departman",
+		"project": "Proje",
+		"requestDate": "Talep Tarihi",
+		"id": "Id",
+		"status": "Durum"
+		},
+		"Posta Kutusu": {
+		"employee": "Çalışan",
+		"department": "Deparman",
+		"project": "Proje",
+		"requestDate": "Talep Tarihi",
+		"id": "Id",
+		"status": "Durum",
+		"comments": "Yorumlar"
+		},
+		"Masraf Merkezi": {
+		"costCenterCode": "Masraf Merkezi Kodu",
+		"costCenterDescription": "Masraf Merkezi Tanımı ",
+		"status": "Durum"
+		},
+		"Departman": {
+		"departmentCode": "Departman Kodu ",
+		"departmentName": "Departman İsmi",
+		"costCenter": "Masraf Merkezi ",
+		"status": "Durum"
+		},
+		"Rol": {
+		"roleCode": "Rol Kodu",
+		"roleName": "Rol Tanımı",
+		"maxAmount": "Max Tutar"
+		},
+		"İş Tipi": {
+		"employmentTypeName": "İsmi ",
+		"employmentTypeDescription": "Açıklama "
+		},
+		"Masraf Tipi": {
+		"expenseTypeName": "İsmi ",
+		"expenseTypeDescription": "Açıklama ",
+		"status": "Durum"
+		},
+		"Onay Seviyesi ": {
+		"level": "Seviye",
+		"levelDescription": "Açıklama"
+		},
+		"Onay Grubu": {
+		"groupCode": "Kodu",
+		"groupDescription": "Açıklama "
+		},
+		"Onay Rol Haritası": {
+		"group": "Grup",
+		"role": "Rol",
+		"level": "Seviye",
+		"employeeName": "Çalışan İsmi"
+		},
+		"Onay Durum": {
+		"status": "Durum",
+		"statusDescription": "Durum Açıklaması "
+		},
+		
+		"Çalışan": {
+		"name": "İsim",
+		"email": "Email",
+		"mobile": "Cep Telefonu",
+		"doj": "İşe Giriş Tarihi",
+		"nationality": "Uyruk "
+		},
+		"Proje": {
+		"projectName": "Proje İsmi ",
+		"projectDescription": "Açıklama "
+		},
+		"Alt Proje": {
+		"subProjectName": "Alt Proje İsmi",
+		"subProjectDescription": "Alt Proje Açıklaması",
+		"project": "Proje"
+		},
+		"Rol Devral": {
+		"user": "Kullanıcı",
+		"role": "Rol"
+		},
+		"Masraf Tazminatı": {
+		"Yarat": {
+		"invoiceNo": "Fatura No",
+		"invoiceDate": "Fatura Tarihi ",
+		"claimAmount": "Alacak Tutarı",
+		"expenseType": "Masraf Tipi"
+		},
+		"Liste": {
+		"expenseName": "Masraf İsmi",
+		"claimAmount": "Alacak Tutarı",
+		"department": "Departman",
+		"project": "Proje",
+		"requestDate": "Talep Tarihi ",
+		"id": "Id",
+		"status": "Durum"
+		}
+		},
+		"Proje Devral": {
+		"employee": "Çalışan",
+		"project": "Proje"
+		}
+	},	
+	"button": {	
+		"create": "Yarat",
+		"update": "Güncelle",
+		"back": "Geri",
+		"assign": "Devral",
+		"delete": "Sil",
+		"cancel": "İptal ",
+		"approve": "Onay",
+		"reject": "Red ",
+		"login": "Bağlan",
+		"addNew": "Yeni Ekle",
+		"add": "Ekle",
+		"submit": "Başvur",
+		"yes": "Evet",
+		"no": "Hayır",
+		"logout": "Çıkış"
+	},	
+	"validation": {	
+		"required": "Alan Gerekli",
+		"invalidEmail": "Geçersiz Email",
+		"onlyAlphabets": "Sadece Harf Geçerli",
+		"accountNo": "Hesap No en az 10 basamak olmalı",
+		"onlyNumbers": "Sadece Rakam Geçerli",
+		"cardNo": "Kart No 16 basamak olmalı",
+		"taxNo": "Vergi No Geçersiz",
+		"invalidMobileNo": "Cep Telefonu Numarası Geçersiz"
+	},	
+	"notification": {	
+		"notification": "Bilgilendirme",
+		"addRequest": "Bilgi Başarıyla Eklendi",
+		"updateRequest": "Bilgi Başarıyla Güncellendi",
+		"deleteRequest": "Bildi Başarıyla Silindi",
+		"noRequestSelected": "Talep Seçilmedi"
+	},	
+	"alert": {	
+		"approve": "Onaylamak istediğinizden emin misiniz?",
+		"reject": "Red etmek istediğinizden emin misiniz?",
+		"delete": "Silmek istediğinizden emin misiniz?"
+	},	
+	"components": {	
+		"Talep Detayları ": {
+		"employee": "Çalışan",
+		"department": "Departman",
+		"requestDate": "Talep edilen Tarih",
+		"travelStartDate": "Başlangıç Tarihi ",
+		"travelEndDate": "Bitiş Tarihi ",
+		"travelPurpose": "Seyahat Amacı ",
+		"claimAmount": "Alacak Tutarı",
+		"expenseTitle": "Masraf Başlığı",
+		"currentStatus": "Mevcut Durum",
+		"id": "Id"
+		},
+		"Filteler": {
+		"Raporlar": {
+               "department": "Department",		
+		   "project": "Proje",
+		   "subProject":"Alt Proje",
+		   "task": "Görev",
+		   "costCenter":"Masraf Merkezi",
+		   "status":"Durum",
+		   "date":"Talep Tarihi : 01/01/2020 den.- 01/01/2021 e",
+		   "amount":"Tutar : 100 den 10000000 e",
+		   "travelDate": "Seyahat Tarihi 01/01/2020 den.- 01/01/2021 e"
+		}
+
+			}
+		}
+	}
+

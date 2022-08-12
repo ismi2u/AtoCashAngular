@@ -1,0 +1,15 @@
+<nz-card [nzBordered]="false" [nzTitle]="'heading.currency' | translate" [nzExtra]="action">
+    <app-table
+      [tableHeaders]="currencyHeaders"
+      [tableData]="currencies"
+      (onDelete) = "deleteRecord($event)"
+      (onEdit) = "editRecord($event)"
+      [formName] = "'currency'"
+    ></app-table>
+  </nz-card>
+  
+  <ng-template #action>
+    <button nz-button routerLink="/currency/action/add" nzType="primary">
+      {{ 'button.create' | translate }}
+    </button>
+  </ng-template>

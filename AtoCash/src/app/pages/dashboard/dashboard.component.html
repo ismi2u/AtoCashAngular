@@ -1,0 +1,137 @@
+<nz-card
+	class="dashboard"
+	[nzBordered]="false"
+	[nzTitle]="'heading.dashboard' | translate"
+>
+	<div class="dashboard__content">
+		<div class="dashboard__left-pane">
+			<div class="dashboard__banner">
+				<div class="dashboard__tiles">
+					<div
+						class="dashboard__tile dashboard__tile--1"
+						(click)="updateChart('cashRequest')"
+					>
+						<p *ngIf="cashRequest" class="dashboard__tile-text">
+							{{ cashRequest.totalCount }}
+						</p>
+
+						<div class="dashboard__tile-info">
+							<i class="dashboard__tile-icon" nz-icon nzType="dollar"></i>
+							<p class="dashboard__tile-heading">
+								{{ 'heading.cashAdvanceStatus' | translate }}
+							</p>
+						</div>
+						<div
+							class="dashboard__tile-hover"
+							*ngIf="requestType === 'cashRequest'"
+						></div>
+					</div>
+					<div
+						class="dashboard__tile dashboard__tile--2"
+						(click)="updateChart('travelRequest')"
+					>
+						<p *ngIf="travelRequest" class="dashboard__tile-text">
+							{{ travelRequest.totalCount }}
+						</p>
+						<div class="dashboard__tile-info">
+							<i class="dashboard__tile-icon" nz-icon nzType="global"></i>
+							<p class="dashboard__tile-heading">
+								{{ 'heading.travelRequest' | translate }}
+							</p>
+							<div
+								class="dashboard__tile-hover"
+								*ngIf="requestType === 'travelRequest'"
+							></div>
+						</div>
+					</div>
+					<div
+						class="dashboard__tile dashboard__tile--3"
+						(click)="updateChart('expenseRequest')"
+					>
+						<p *ngIf="expenseReimburse" class="dashboard__tile-text">
+							{{ expenseReimburse.totalCount }}
+						</p>
+						<div class="dashboard__tile-info">
+							<i class="dashboard__tile-icon" nz-icon nzType="bar-chart"></i>
+							<p class="dashboard__tile-heading">
+								{{ 'heading.expenseReimburse' | translate }}
+							</p>
+						</div>
+						<div
+							class="dashboard__tile-hover"
+							*ngIf="requestType === 'expenseRequest'"
+						></div>
+					</div>
+				</div>
+			</div>
+			<div class="dashboard__chart">
+				<highcharts-chart
+					[Highcharts]="highCharts"
+					[options]="chartOptions"
+					[(update)]="updateFlag"
+					style="width: 500px; height: 400px; display: block"
+				></highcharts-chart>
+			</div>
+		</div>
+		<div class="dashboard__separator"></div>
+		<div class="dashboard__right-pane">
+			<p class="dashboard__credit-card-label">{{'heading.yourCard' | translate}}</p>
+			<div *ngIf="employee?.bankCardNo" class="dashboard__credit-card">
+				<div class="dashboard__credit-card-icon">
+					<div class="dashboard__credit-card-icon--1"></div>
+					<div class="dashboard__credit-card-icon--2"></div>
+				</div>
+				<p class="dashboard__credit-card-no">
+					{{ getCardNumber(employee.bankCardNo) }}
+				</p>
+				<p class="dashboard__credit-card-cvv">CVV ***</p>
+			</div>
+			<div class="dashboard__amount">
+				<p class="dashboard__amount-label">{{'heading.currentBalance' | translate}}</p>
+				<p class="dashboard__amount-value dashboard__amount-balance">{{(balance?.curBalance).toFixed(2)}}</p>
+			</div>
+			<div class="dashboard__amount">
+				<p class="dashboard__amount-label">{{'heading.maxLimit' | translate}}</p>
+				<p class="dashboard__amount-value ">{{(balance?.maxLimit).toFixed(2)}}</p>
+			</div>
+			<div class="dashboard__amount">
+				<p class="dashboard__amount-label">{{'heading.onHand' | translate}}</p>
+				<p class="dashboard__amount-value ">{{(balance?.cashInHand).toFixed(2)}}</p>
+			</div>
+			<div class="dashboard__amount">
+				<p class="dashboard__amount-label">{{'heading.pendingApproval' | translate}}</p>
+				<p class="dashboard__amount-value ">{{(balance?.pendingApproval).toFixed(2)}}</p>
+			</div>
+
+			<div class="dashboard__amount">
+				<p class="dashboard__amount-label">{{'heading.pendingSettlement' | translate}}</p>
+				<p class="dashboard__amount-value ">{{(balance?.pendingSettlement).toFixed(2)}}</p>
+			</div>
+			
+			
+			<p class="dashboard__credit-card-label margin-top-16">{{'heading.information' | translate}}</p>
+			<div class="dashboard__amount">
+				<p class="dashboard__amount-label">{{'heading.accountStatus' | translate}}</p>
+				<p class="dashboard__amount-value ">Active</p>
+			</div>
+			<div class="dashboard__amount">
+				<p class="dashboard__amount-label">{{'heading.currency' | translate}}</p>
+				<p class="dashboard__amount-value ">{{employeeCurrency}}</p>
+			</div>
+
+
+			
+			<!-- <div class="dashboard__balance">
+		<i
+			class="dashboard__balance--icon"
+			nz-icon
+			nzType="wallet"
+			nzTheme="outline"
+		></i>
+		<p class="dashboard__balance--text">
+			{{ employeeBalance.toFixed(2) }} {{ employeeCurrency }}
+		</p>
+	</div> -->
+		</div>
+	</div>
+</nz-card>

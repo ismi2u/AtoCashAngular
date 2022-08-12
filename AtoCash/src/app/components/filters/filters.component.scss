@@ -1,0 +1,20 @@
+.filters-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    align-items: center;
+    padding: 16px;
+    margin-right: 8px;
+    background: rgba($color: #001529, $alpha: 0.02);
+    &__item {
+      width: 100%
+    }
+
+    &__control {
+        width: 100%;
+
+        nz-date-picker {
+          width: 100%;
+        }
+    }
+}

@@ -1,0 +1,109 @@
+<div class="form-layout">
+  <nz-card
+    class="form-layout__card"
+    [nzBordered]="false"
+    [nzTitle]="'heading.user' | translate"
+    [nzExtra]="action"
+  >
+    <form nz-form [formGroup]="form" (ngSubmit)="submitForm()">
+      <nz-form-item *ngIf="mode === 'add'">
+        <nz-form-label [nzSpan]="7" nzRequired nzFor="employee">{{
+          "form.user.employee" | translate
+        }}</nz-form-label>
+        <nz-form-control
+          [nzSpan]="15"
+          [nzErrorTip]="'validation.required' | translate"
+        >
+          <nz-select
+            nzShowSearch
+            nzAllowClear
+            id="employee"
+            formControlName="employeeId"
+            [nzPlaceHolder]="'form.user.employee' | translate"
+          >
+            <nz-option
+              *ngFor="let option of employees"
+              [nzValue]="option.id"
+              [nzLabel]="getLabel(option)"
+            ></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzRequired nzFor="username">{{
+          "form.user.userName" | translate
+        }}</nz-form-label>
+        <nz-form-control
+          [nzSpan]="15"
+          [nzErrorTip]="'validation.required' | translate"
+        >
+          <input
+            id="username"
+            formControlName="username"
+            type="text"
+            nz-input
+            [placeholder]="'form.user.userName' | translate"
+            appCapitalize
+          />
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzRequired nzFor="email">{{
+          "form.user.email" | translate
+        }}</nz-form-label>
+        <nz-form-control
+          [nzSpan]="15"
+          [nzErrorTip]="'validation.required' | translate"
+        >
+          <input
+            id="email"
+            formControlName="email"
+            nz-input
+            type="email"
+            [placeholder]="'form.user.email' | translate"
+          />
+        </nz-form-control>
+      </nz-form-item>
+
+
+      <nz-form-item class="form-item" *ngIf="mode === 'add'">
+        <nz-form-label [nzSpan]="7" nzRequired nzFor="password">{{
+          "form.user.password" | translate
+        }}</nz-form-label>
+				<nz-form-control  [nzSpan]="15" [nzErrorTip]="'validation.required' | translate">
+					<ng-template #suffixIcon>
+						<i
+							nz-icon
+							(click)="showPassword = !showPassword"
+							[nzType]="!showPassword ? 'eye-invisible' : 'eye'"
+						></i>
+					</ng-template>
+					<nz-input-group [nzAddOnAfter]="suffixIcon">
+						<input
+							[type]="showPassword ? 'text' : 'password'"
+							nz-input
+							formControlName="password"
+              [placeholder]="'form.user.password' | translate"
+						/>
+					</nz-input-group>
+				</nz-form-control>
+			</nz-form-item>
+
+    
+
+      <nz-form-item>
+        <nz-form-control class="action-control">
+          <button nz-button nzType="primary" [disabled]="!form.valid">
+            {{ getButtonLabel() }}
+          </button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+    <ng-template #action>
+      <button nz-button routerLink="/user" nzType="primary">
+        <i nz-icon nzType="arrow-left"></i>
+        {{ "button.back" | translate }}
+      </button>
+    </ng-template></nz-card
+  >
+</div>

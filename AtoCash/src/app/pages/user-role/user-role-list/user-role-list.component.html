@@ -1,0 +1,15 @@
+<nz-card [nzBordered]="false" [nzTitle]="'heading.userRole' | translate" [nzExtra]="action">
+  <app-table
+    [tableHeaders]="userRolesHeaders"
+    [tableData]="userRoles"
+    (onDelete) = "deleteRecord($event)"
+    (onEdit) = "editRecord($event)"
+    [formName] = "'userRoles'"
+  ></app-table>
+</nz-card>
+
+<ng-template #action>
+  <button nz-button routerLink="/user-role/action/add" nzType="primary" i18n>
+    {{ 'button.create' | translate }}
+  </button>
+</ng-template>

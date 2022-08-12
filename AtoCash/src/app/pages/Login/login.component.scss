@@ -1,0 +1,94 @@
+@import "../../../styles.scss";
+
+.login-form {
+  width: 300px;
+  margin: 0 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-form-margin {
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+.form-item {
+  width: 100%;
+}
+
+.login-form-forgot {
+  float: right;
+}
+
+.login-form-button {
+  width: 100%;
+}
+
+nz-layout {
+  height: 100vh;
+}
+
+nz-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include respond(phone) {
+    flex-direction: column;
+  }
+}
+
+.ant-layout-header {
+  @include respond(phone) {
+    padding: 20px !important;
+  }
+}
+
+nz-header {
+  background: transparent;
+}
+
+.banner {
+  max-width: 50%;
+
+  img {
+    width: 100%;
+  }
+
+  @include respond(phone) {
+    margin-bottom: 80px;
+  }
+}
+
+
+.logo {
+  position: relative;
+  height: 64px;
+  padding-left: 24px;
+  overflow: hidden;
+  line-height: 64px;
+  background: transparent;
+  transition: all .3s;
+  display: flex;
+  justify-content: space-between;
+  @include respond(phone) {
+  padding:0px !important;
+  }
+}
+
+.logo img {
+  display: inline-block;
+  height: 24px;
+  vertical-align: middle;
+}
+
+.logo h1 {
+  display: inline-block;
+  margin: 0 0 0 20px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  font-family: Avenir, Helvetica Neue, Arial, Helvetica, sans-serif;
+  vertical-align: middle;
+}

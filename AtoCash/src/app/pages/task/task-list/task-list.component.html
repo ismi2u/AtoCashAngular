@@ -1,0 +1,15 @@
+<nz-card [nzBordered]="false" [nzTitle]="'heading.task' | translate" [nzExtra]="action">
+  <app-table
+    [tableHeaders]="tasksHeaders"
+    [tableData]="tasks"
+    (onDelete) = "deleteRecord($event)"
+    (onEdit) = "editRecord($event)"
+    [formName] = "'task'"
+  ></app-table>
+</nz-card>
+
+<ng-template #action>
+  <button nz-button routerLink="/task/action/add" nzType="primary">
+    {{ 'button.create' | translate }}
+  </button>
+</ng-template>

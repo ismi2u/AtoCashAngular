@@ -1,0 +1,507 @@
+{
+	"heading": {
+		"edit":"تعديل",
+		"delete":"الغاء",
+		"view":"تعرف علي المزيد",
+		"duplicate":"تكرار",
+		"chargeTo":" تحميل تكلفه علي",
+		"totalAmount":"القيمه الاجماليه",
+		"requestDetails":"تفاصيل الطلب",
+		"expenseDetails":"تفاصيل التكلفه",
+		"information":"معلومات",
+		"yourCard":"البطاقه الخاصه بك",
+		"currentBalance":"الرصيد الحالي",
+		"maxLimit":"الحد الاقصي",
+		"onHand":"السيوله الراهنه",
+		"accountStatus":"الحاله",
+		"bankCredit":"المحول الي الحساب البنكي",
+		"walletCredit":"المحول الي المحفظه الالكترونيه",
+		"userRole": "صلاحيات حسابات المستخدم",
+		"assignRole": " تكليف صلاحيات ",
+		"assignProject": "التكليف بالمشاريع",
+		"user": "المستخدمين",
+		"task": "المهام",
+		"subProject": "المشاريع الفرعيه",
+		"project": "المشاريع",
+		"approval": "الموافقات",
+		"level": "الدرجات",
+		"group": "المجموعات",
+		"roleMap": "دليل قائمة الموافقات",
+		"approvalLevel": "درجة الموافقات",
+		"approvalGroup": "فريق تسلسل الموافقات",
+		"approvalRoleMap": "دليل قائمة الموافقات ",
+		"approvalStatus": "حالة الموافقات",
+		"dashboard": "لوحة التحكم",
+		"costCenter": "مراكز التكلفه",
+		"department": "ادارات",
+		"role": " الدور الوظيفي",
+		"employmentType": "انواع التعيين",
+		"expenseType": "انواع المصروفات",
+		"expenseStatus": "حالة المصروفات",
+		"cashAdvanceStatus": "المقدمات النقديه",
+		"myInbox": "صندوق الوارد",
+		"report": "التقارير",
+		"inbox": "صندوق الوارد",
+		"logout": "تسجيل خروج",
+		"action": "اجرائات",
+		"travelRequest": "طلب سفر",
+		"expenseReimburse": "التعويض النقدي",
+		"status": "انواع الحاله",
+		"currency": "العمله",
+		"projectManagement": "ادارة المشروع",
+		"preferences": "التفضيلات",
+		"employeeManagement": "ادارة شؤون الموظفين",
+		"filters": "تصنيف البيانات",
+		"search": "بحث",
+		"assignEmployeesToProject": "تكليف الموظفين بالمشاريع",
+		"employeesAssigned": "الموظفين غير المكلفين بمشاريع",
+		"approved": "تم الموافقه",
+		"rejected": "تم الرفض",
+		"pending": "قيد الانتظار",
+		"assigned": "مكلف",
+		"notAssigned": "غير مكلف",
+		"employee":"الموظفين",
+		"disburse": "التحويلات الماليه",
+		"expenseReimburseInitialization":"بدء طلب التعويض النقدي",
+		"subClaims": "طلبات التعويض النقدي الفرعيه",
+		"settlementStatus":"حالة المخالصه",
+		"settlementFrom": "من",
+		"settlementTo": "الي"
+	},
+	"form": {
+		"disburse": {
+			"comment": "تعليق",
+			"additionalData": "بيانات اضافيه"
+		},
+		"currency": {
+			"currencyCode": "رمز العمله",
+			"currencyName": "اسم العمله",
+			"country": "بلد العمله"
+		},
+		"expenseReimburse": {
+			"expenseReimburseAmount": "قيمة التعويض النقدي",
+			"enableProject": "تفعيل مشروع",
+			"project": "المشروع",
+			"expense": "تكلفه",
+			"subProject": "المشروع الفرعي",
+			"task": "المهمه",
+			"documents": "مستندات",
+			"invoiceNo": "رقم الفاتوره",
+			"invoiceDate": "تاريخ الفاتوره",
+			"tax": "(%) الضريبه",
+			"vendor": "البائع",
+			"description": "الوصف",
+			"taxAmount": "قيمة الضريبه",
+			"title": " اسم التكلفه",
+			"employee": " الموظف",
+			"location": "المكان"
+		},
+		"status": {
+			"status": "الحاله"
+		},
+		"cashAdvance": {
+			"employee": "الموظف",
+            "advanceAmount": "قيمة المقدم النقدي ",
+            "requestDescription": "وصف الطلب",
+            "enableProject": "تفعيل مشروع",
+            "project": "المشروع",
+            "subProject": "المشروع الفرعي",
+            "task": "المهمه",
+			"currency": "العمله"
+		},
+		"travel": {
+			"startDate": "تاريخ البدء",
+      "endDate": "تاريخ الانتهاء",
+      "travelPurpose": "غرض السفر",
+      "enableProject": "تفعيل مشروع",
+      "project": "المشروع",
+      "subProject": "المشروع الفرعي",
+      "task": "المهمه",
+			"currency": "العمله"
+		},
+		"login": {
+			"email": "البريد الالكتروني",
+			"password": "كلمة السر",
+			"forgetPassword": "نسيت كلمة السر",
+			"rememberMe": "تذكر بياناتي",
+			"buttonText": "تسجيل دخول"
+		},
+		"userRole": {
+			"roleName": "اسم الصلاحيه "
+		  },
+		  "user": {
+			"email": "البريد الالكتروني",
+			"userName": "اسم المستخدم",
+			"password": "كلمة السر",
+			"employee": "الموظف"
+		  },
+		  "task": {
+			"subProject": "المشروع الفرعي",
+			"taskName": "الاسم",
+			"taskDescription": "الوصف"
+		  },
+	  
+		  "costCenter": {
+			"costCenterCode": "الرمز",
+			"costCenterDescription": "الوصف",
+			"status": "الحاله"
+		},
+		"department": {
+			"departmentCode": "الرمز",
+      "departmentName": "الاسم",
+      "costCenter": "مركز التكلفه",
+			"status": "الحاله"
+		},
+		"role": {
+			"roleCode": "الرمز",
+			"roleName": "الاسم",
+			"maxAmount": "الحد الاقصي"
+		},
+		"employmentType": {
+			"employmentTypeName": "الاسم",
+			"employmentTypeDescription": "الوصف"
+		  },
+		  "expenseType": {
+			"expenseTypeName": "الاسم",
+			"expenseTypeDescription": "الوصف"
+		  },
+		  "approvalLevel": {
+			"level": "الدرجه",
+			"levelDescription": "الوصف"
+		  },
+		  "approvalGroup": {
+			"groupCode": "الرمز",
+			"groupDescription": "الوصف"
+		  },
+		  "approvalRoleMap": {
+			"group": "الفريق",
+			"role": "الدور",
+			"level": "الدرجه"
+		  },
+		  "approvalStatus": {
+			"status": "الحاله",
+			"statusDescription": "وصف الحاله"
+		},
+		"employee": {
+			"firstName": "الاسم الاول",
+			"lastName": "اسم العائله",
+			"middleName": "الاسم الاوسط",
+			"empCode": "رقم الموظف",
+			"bankAccount": "الحساب البنكي",
+			"bankCardNo": "رقم البطاقه البنكيه",
+			"nationalId": "الرقم القومي",
+			"passportNo": "رقم جواز السفر",
+			"taxNumber": "الرقم الضريبي",
+			"dob": "تاريخ الميلاد",
+			"approvalGroup": "فريق تسلسل الموافقات",
+			"role": "الدور الوظيفي",
+			"employmentType": "نوع التعيين",
+			"department": "الاداره",
+			"gender": "الجنس",
+			"email": "البريد الالكتروني",
+			"mobile": "رقم المحمول",
+			"doj": "تاريخ التعيين",
+			"nationality": "الجنسيه",
+			"status": "الحاله",
+			"currency": "العمله"
+		},
+		"project": {
+			"projectName": "الاسم",
+			"projectDescription": "الوصف",
+			"costCenter": "مركز التكلفه",
+			"projectManager": "مدير المشروع"
+		  },
+		  "subProject": {
+			"subProjectName": "الاسم",
+			"subProjectDescription": "الوصف",
+			"project": "المشروع"
+		  },
+		  "assignRole": {
+			"user": "المستخدم",
+			"role": "الصلاحيات"
+		  },
+		  "assignProject": {
+			"employee": "الموظف",
+			"project": "المشروع"
+		}
+	},
+	"tableHeader": {
+		"currency": {
+			"currencyCode": "رمز العمله",
+			"currencyName": "اسم العمله",
+			"country": "بلد العمله"
+		},
+		"status": {
+			"status": "الحاله"
+		},
+		"disburse": {
+			"id": "الرقم",
+			"employee": "الموظف",
+			"department": "الاداره",
+			"project": "المشروع",
+			"claimAmount": "القيمه المطلوبه",
+			"status": "الحاله"
+		},
+		"travel": {
+			"startDate": "تاريخ البدء",
+			"endDate": "تاريخ الانتهاء",
+			"travelPurpose": "غرض السفر",
+			"department": "الاداره",
+			"project": "المشروع",
+			"requestDate": "تاريخ الطلب",
+			"id": "رقم الطلب",
+			"status": "الحاله",
+			"claimAmount": "القيمه المطلوبه"
+		},
+		"userRole": {
+			"roleName": "اسم الدور الوظيفي"
+		},
+		"user": {
+		  "userName": "اسم المستخدم",
+		  "email": "البريد الالكتروني"
+		},
+		"task": {
+		  "subProject": "المشروع الفرعي",
+		  "taskName": "الاسم",
+		  "taskDescription": "الوصف",
+		  "status": "الحاله"
+		},
+		"cashAdvance": {
+			"advanceAmount": "القيمه",
+			"advanceDescription": "الوصف",
+			"department": "الاداره",
+			"project": "المشروع",
+			"requestDate": "تاريخ الطلب",
+			"id": "رقم الطلب",
+			"status": "الحاله",
+			"claimAmount": "القيمه المطلوبه"
+		},
+		"inbox": {
+			"employee": "الموظف",
+      "department": "الاداره",
+			"project": "المشروع",
+			"requestDate": "تاريخ الطلب",
+			"id": "رقم الطلب",
+			"status": "الحاله",
+			"comments": "التعليق",
+			"claimAmount": "القيمه المطلوبه",
+			"costCenter": "مركز التكلفه",
+			"invoiceDate": "تاريخ الفاتوره",
+			"expenseType": "نوع التكلفه"
+		},
+		"costCenter": {
+			"costCenterCode": "الرمز",
+      "costCenterDescription": "الوصف",
+			"status": "الحاله"
+		},
+		"department": {
+			"departmentCode": "الرمز",
+      "departmentName": "الاسم",
+      "costCenter": "مركز التكلفه",
+			"status": "الحاله"
+		},
+		"role": {
+			"roleCode": "الرمز",
+			"roleName": "الاسم",
+			"maxAmount": "الحد الاقصي"
+		  },
+		  "employmentType": {
+			"employmentTypeName": "الاسم",
+			"employmentTypeDescription": "الوصف"
+		  },
+		  "expenseType": {
+			"expenseTypeName": "الاسم",
+			"expenseTypeDescription": "الوصف",
+			"status": "الحاله"
+		},
+		"approvalLevel": {
+			"level": "الدرجه",
+			"levelDescription": "الوصف"
+		  },
+		  "approvalGroup": {
+			"groupCode": "الرمز",
+			"groupDescription": "الوصف"
+		  },
+		  "approvalRoleMap": {
+			"group": "الفريق",
+			"role": "الصلاحيات",
+			"level": "الدرجه",
+			"employeeName": "اسم الموظف"
+		},
+		"approvalStatus": {
+			"status": "الحاله",
+			"statusDescription": "وصف الحاله"
+		  },
+	  
+		  "employee": {
+			"name": "الاسم",
+			"email": "البريد الالكتروني",
+			"mobile": "رقم المحمول",
+			"doj": "تاريخ التعيين",
+			"nationality": "الجنسيه",
+			"jobRole" :"الدور الوظيفي"
+		  },
+		  "project": {
+			"projectName": "الاسم",
+			"projectDescription": "الوصف",
+			"projectManager": "مدير المشروع",
+			"status": "الحاله"
+		  },
+		  "subProject": {
+			"subProjectName": "الاسم",
+			"subProjectDescription": "الوصف",
+			"project": "المشروع",
+			"status": "الحاله"
+		  },
+		  "assignRole": {
+			"user": "المستخدم",
+			"role": "الصلاحيات"
+		},
+		"expenseReimburse": {
+			"create": {
+				"invoiceNo": "رقم الفاتوره",
+				"invoiceDate": "تاريخ الفاتوره",
+				"claimAmount": "قيمة التكلفه",
+				"expenseType": "نوع التكلفه"
+			},
+			"list": {
+				"expenseName": "نوع التكلفه",
+				"claimAmount": "قيمة التكلفه",
+				"department": "الاداره",
+				"project": "المشروع",
+				"requestDate": "تاريخ الطلب",
+				"id": "رقم الطلب",
+				"status": "الحاله"
+			}
+		},
+		"assignProject": {
+			"employee": "الموظف",
+			"project": "المشروع"
+		}
+	},
+	"button": {
+		"next":"التالي",
+		"create": "انشاء",
+    "update": "تحديث بيانات",
+    "back": "الرجوع",
+    "assign": "تكليف",
+    "delete": "ازاله",
+    "cancel": "الغاء",
+    "approve": "موافقه",
+	"remove": "ازاله",
+    "reject": "رفض",
+    "login": "تسجيل دخول",
+		"addNew": "اضافة جديد",
+		"add": "اضافه",
+		"submit": "ارسال",
+		"yes": "نعم",
+		"no": "لا",
+		"download": "تحميل",
+		"downloadReports": "تحميل التقارير",
+		"updateExpenseMethod": "تعديل طلب التعويض",
+		"logout": "تسجيل خروج",
+		"changePassword":"تغيير كلمة السر",
+		"requestReset":"طلب رابط تغيير كلمة السر",
+		"automate": "اتمته",
+		"settle": "تخليص"
+	},
+	"validation": {
+		"required": "!خانه اجباريه",
+		"invalidEmail": "!بريد الكتروني غير صحيح",
+		"onlyAlphabets": " !يمكنك ادخال حروف ابجديه فقط",
+		"accountNo": " !رقم الحساب يجب ان يتكون من 10 ارقام علي الاقل",
+		"onlyNumbers": " !يمكنك ادخال ارقام فقط",
+		"cardNo": " !رقم البطاقه البنكيه يجب ان يتكون من 16 رقم",
+		"taxNo": " ! رقم ضريبي غير صحيح",
+		"invalidMobileNo": " ! رقم محمول غير صحيح",
+		"docAlert":"(من فضلك تاكد من ان جميع طلبات تعويض المصروفات مرفقه بمستند واحد علي الاقل)"
+	},
+	"notification": {
+		"notification": "اشعار",
+    "addRequest": "! تم اضافة البيانات بنجاح",
+    "updateRequest": "! تم تعديل البيانات بنجاح",
+    "deleteRequest": "! تم الغاء البيانات بنجاح",
+    "noRequestSelected": "! لم يتم اختيار طلب"
+	},
+	"alert": {
+		"approve": "تأكيد الموافقه؟",
+		"reject": "تأكيد الرفض؟",
+		"delete": "تأكيد الالغاء؟"
+	},
+	"components": {
+		"requestDetails": {
+			"employee": "الموظف",
+			"department": "الاداره",
+			"requestDate": "تاريخ الطلب",
+			"travelStartDate": "تاريخ البدء",
+			"travelEndDate": "تاريخ الانتهاء",
+			"travelPurpose": "غرض السفر",
+			"claimAmount": "القيمه",
+			"expenseTitle": "اسم التكلفه",
+			"currentStatus": "الحاله الراهنه",
+			"id": "رقم الطلب",
+			"cashAdvanceDetails": "تفاصيل طلب المقدم النقدي",
+			"advanceAmount": "المقدم النقدي",
+			"subProject": "المشروع الفرعي",
+			"workTask": "مهمه وظيفيه",
+			"description": "الوصف",
+			"expenseRequestTitle": "تفاصيل طلب التعويض النقدي",
+			"project": "المشروع",
+			"travelRequestDetails": "تفاصيل طلب السفر",
+			"invoiceNo": "رقم الفاتوره",
+			"invoiceDate": "تاريخ الفاتوره",
+			"location": "المكان",
+			"taxAmount": "قيمة الضريبه",
+			"vendor": "المورد",
+			"expense": "التكلفه",
+			"documents": "المستندات",
+			"comments": "التعليقات",
+			"currency": "العمله",
+			"recordDate": "تاريخ السجل",
+			"accountNo": "رقم الحساب",
+			"cardNo": "رقم البطاقه"
+		},
+		"filters": {
+			"reports": {
+               "department": "الاداره",
+			   "project": "المشروع",
+			   "subProject":"المشروع الفرعي",
+			   "task": "مهمه",
+			   "costCenter":"مركز التكلفه",
+			   "status":"الحاله",
+			   "from": "تاريخ الطلب من",
+			   "to": "تاريخ الطلب الي",
+			   "amount": "القيمه من - الي",
+			   "travelFrom": "تاريخ بداية السفر",
+			   "travelTo": "تاريخ نهاية السفر ",
+			   "travelPurpose": "غرض السفر",
+			   "employees": "الموظفين",
+			   "employeeName": "اسم الموظف",
+			   "employeeCode": "رمز الموظف",
+			   "bankAccount": "الحساب البنكي",
+			   "nationalId": "الرقم القومي",
+			   "passportNo": "رقم جواز السفر",
+			   "taxNo": "الرقم الضريبي",
+			   "nationality": "الجنسيه",
+			   "gender": "الجنس",
+			   "email": "البريد الالكتروني",
+			   "mobileNo": "رقم المحمول",
+			   "employmentType": "نوع التعيين",
+			   "jobRole": "الدور الوظيفي",
+			   "approvalGroup": "فريق تسلسل الموافقات",
+			   "roleId": "رمز الدور الوظيفي",
+			   "expenseType": "نوع التكلفه",
+				"all": "الكل",
+				"settled": "خالصه",
+				"notSettled": "غير خالصه",
+				"male": "ذكر",
+				"female": "انثي",
+				"others": "غير ذلك",
+				"myReports": "تقاريري"
+			}
+		}
+	},
+	"tooltip": {
+		"automate": "لكي تستطيع الاتمتهUI PATHتحتاج ال "
+	}
+}

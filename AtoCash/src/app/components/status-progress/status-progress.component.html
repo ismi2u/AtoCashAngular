@@ -1,0 +1,8 @@
+<nz-steps [nzCurrent]="1" nzDirection="vertical">
+  <nz-step
+    *ngFor="let data of progressData"
+    [nzStatus]="getStatus(data)"
+    [nzTitle]="data.approverName"
+    [nzDescription]="data.approverRole"
+  ></nz-step>
+</nz-steps>

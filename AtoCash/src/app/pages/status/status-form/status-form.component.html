@@ -1,0 +1,44 @@
+<div class="form-layout">
+  <nz-card
+    class="form-layout__card"
+    [nzBordered]="false"
+    [nzTitle]="'heading.status' | translate"
+    [nzExtra]="action"
+  >
+    <form nz-form [formGroup]="form" (ngSubmit)="submitForm()">
+      <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzRequired nzFor="status">{{
+          "form.status.status" | translate
+        }}</nz-form-label>
+        <nz-form-control
+          [nzSpan]="15"
+          [nzErrorTip]="'validation.required' | translate"
+        >
+          <nz-input-group>
+            <input
+              formControlName="status"
+              type="text"
+              nz-input
+              [placeholder]="'form.status.status' | translate"
+              appCapitalize
+              id="status"
+            />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control class="action-control">
+          <button nz-button nzType="primary" [disabled]="!form.valid">
+            {{ getButtonLabel() }}
+          </button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+    <ng-template #action>
+      <button nz-button routerLink="/status/list" nzType="primary">
+        <i nz-icon nzType="arrow-left"></i>
+        {{ "button.back" | translate }}
+      </button>
+    </ng-template></nz-card
+  >
+</div>

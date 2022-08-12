@@ -1,0 +1,62 @@
+<div class="form-layout">
+  <nz-card
+    class="form-layout__card"
+    [nzBordered]="false"
+    [nzTitle]="'heading.approvalGroup' | translate"
+    [nzExtra]="action"
+  >
+    <form
+      nz-form
+      [formGroup]="form"
+      (ngSubmit)="submitForm()"
+    >
+      <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzRequired nzFor="groupCode">{{
+          'form.approvalGroup.groupCode' | translate
+        }}</nz-form-label>
+        <nz-form-control [nzSpan]="15"  [nzErrorTip]="'validation.required' | translate">
+    
+            <input
+              formControlName="approvalGroupCode"
+              type="text"
+              nz-input
+              [placeholder]="    'form.approvalGroup.groupCode' | translate"
+              appCapitalize
+              id="groupCode"
+            />
+   
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzRequired nzFor="groupDescription">{{
+          'form.approvalGroup.groupDescription' | translate
+        }}</nz-form-label>
+        <nz-form-control [nzSpan]="15"   [nzErrorTip]="'validation.required' | translate">
+     
+            <input
+            id="groupDescription"
+              formControlName="approvalGroupDesc"
+              nz-input
+              type="text"
+              [placeholder]="      'form.approvalGroup.groupDescription' | translate"
+              appCapitalize
+            />
+     
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control class="action-control">
+          <button nz-button nzType="primary" [disabled]="!form.valid">
+            {{ getButtonLabel() }}
+          </button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+    <ng-template #action>
+      <button nz-button routerLink="/approval-group" nzType="primary">
+        <i nz-icon nzType="arrow-left"></i>
+        {{ "button.back" | translate }}
+      </button>
+    </ng-template></nz-card
+  >
+</div>
